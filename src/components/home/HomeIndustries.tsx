@@ -10,12 +10,12 @@ import { EASE, DUR } from "@/lib/motion";
 gsap.registerPlugin(ScrollTrigger);
 
 const industries = [
-  { icon: Hotel, name: "Hospitality", line: "Hotels, restaurants, POS & bookings" },
-  { icon: ShoppingBag, name: "Retail & E-Commerce", line: "Inventory, orders & sales analytics" },
-  { icon: GraduationCap, name: "Education & EdTech", line: "LMS, student portals & attendance" },
-  { icon: Building2, name: "Real Estate", line: "Property management & agent CRMs" },
-  { icon: HeartPulse, name: "Healthcare", line: "Patient systems & appointments" },
-  { icon: Truck, name: "Logistics", line: "Fleet, tracking & delivery monitoring" },
+  { icon: Hotel, name: "Hospitality", line: "Fragmented bookings & housekeeping → ZynStay + ZynRest" },
+  { icon: ShoppingBag, name: "Retail & E-Commerce", line: "Stock out of sync across branches → one inventory & order system" },
+  { icon: GraduationCap, name: "Education & EdTech", line: "Paper enrolment & attendance → custom student systems" },
+  { icon: Building2, name: "Real Estate", line: "Leads lost between agents → custom property & pipeline systems" },
+  { icon: HeartPulse, name: "Healthcare", line: "Scattered patient records & no-shows → custom clinic systems" },
+  { icon: Truck, name: "Logistics", line: "Manual dispatch, no live tracking → fleet & tracking systems" },
 ];
 
 export default function HomeIndustries() {
@@ -37,7 +37,7 @@ export default function HomeIndustries() {
       <div className="container hd-ind">
         <div className="hd-ind-head">
           <p className="eyebrow">Industries we serve</p>
-          <h3>Built for the way your industry works.</h3>
+          <h3>Your industry&apos;s problems, and the systems that fix them.</h3>
           <Link href="/solutions#industries" className="link-chev">See industry use cases <ChevronRight size={18} /></Link>
         </div>
         <ul className="hd-ind-grid">

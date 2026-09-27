@@ -5,7 +5,7 @@ import ProductTheater from "@/components/products/ProductTheater";
 
 export const metadata: Metadata = {
   title: "Products — ZynRest, ZynStay, ZynDesk, ZynCRM",
-  description: "Ready-made platforms for restaurants, hospitality, support and sales — deployed fast, then tailored to the way your business works.",
+  description: "ZynRest and ZynStay are ready to deploy for restaurants and hospitality, with ZynDesk and ZynCRM coming soon — each tailored to the way your business works.",
 };
 
 export default function ProductsPage() {

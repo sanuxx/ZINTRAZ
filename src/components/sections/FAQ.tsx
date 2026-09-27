@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     q: "How long does it take and what does it cost?",
-    a: "It depends on scope. After a free discovery consultation we give you a clear roadmap, timeline and estimate before any commitment. Many businesses start with one of our ready-made platforms (ZynRest, ZynStay, ZynDesk, ZynCRM) and customize from there to go live faster.",
+    a: "It depends on scope. After a transformation assessment we give you a clear roadmap, timeline and estimate before any commitment. Restaurants and hotels can start on ZynRest or ZynStay and customise from there to go live faster; ZynDesk and ZynCRM are coming soon.",
   },
   {
     q: "We're not technical. Will our team be able to use it?",

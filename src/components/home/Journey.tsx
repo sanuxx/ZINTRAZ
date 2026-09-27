@@ -16,10 +16,10 @@ const Particles = dynamic(() => import("@/components/3d/Particles"), { ssr: fals
 
 const chapters = [
   {
-    tag: "AI & Agentic AI", title: <>AI agents that work <span className="grad-text">around the clock.</span></>,
-    desc: "Our core focus. Agents answer customers on WhatsApp and email, qualify leads, process orders and automate the repetitive work — using your data, with your approval.",
-    points: ["Sales & support agents", "Workflow automation", "Human-in-the-loop control"],
-    href: "/ai", cta: "Explore Zyntraz AI",
+    tag: "Business Analysis & Design", title: <>We start with <span className="grad-text">how your business works.</span></>,
+    desc: "Before writing a line of code, we map your operations, processes and bottlenecks — so every system we build fits how you work, not the other way around.",
+    points: ["Process discovery", "Workflow redesign", "Roadmap & architecture"],
+    href: "/services", cta: "See our approach",
   },
   {
     tag: "Software & Custom Systems", title: <>Software built around <span className="grad-text">how you actually work.</span></>,
@@ -28,15 +28,15 @@ const chapters = [
     href: "/services", cta: "See our services",
   },
   {
-    tag: "Web Development & Web Systems", title: <>Websites and web systems, <span className="grad-text">connected.</span></>,
-    desc: "Fast, modern websites that win customers — and web-based systems your team uses every day: portals, dashboards and booking platforms, linked to your tools.",
-    points: ["Web development", "Web system development", "API integrations"],
-    href: "/services", cta: "See web services",
+    tag: "AI & Automation", title: <>AI that works <span className="grad-text">inside your systems.</span></>,
+    desc: "Agents that answer customers on WhatsApp and email, qualify leads, process orders and automate the repetitive work — connected to your real data, with your team in control.",
+    points: ["Sales & support agents", "Workflow automation", "Human-in-the-loop control"],
+    href: "/ai", cta: "Explore Zyntraz AI",
   },
   {
-    tag: "Ready-made Platforms", title: <>Proven platforms, <span className="grad-text">tailored to you.</span></>,
+    tag: "Ready-made Platforms", title: <>Purpose-built platforms, <span className="grad-text">tailored to you.</span></>,
     desc: "Launch fast on a Zyntraz platform, then we customise it to the way your business runs. Every one is AI-ready.",
-    points: ["ZynRest — restaurants", "ZynStay — hospitality", "ZynDesk & ZynCRM — support and sales"],
+    points: ["ZynRest — restaurants", "ZynStay — hospitality", "ZynDesk & ZynCRM — support and sales (coming soon)"],
     href: "/products", cta: "Explore the platforms",
   },
 ];
@@ -132,10 +132,10 @@ export default function Journey() {
         <SkipSection />
 
         <div className="jr-final">
-          <p className="jr-final-tag">We build <span className="grad-text">AI agents</span> — and the software, websites &amp; systems your business runs on.</p>
-          <p className="jr-final-list">AI · Software · Web · Web Systems · Custom Systems</p>
+          <p className="jr-final-tag">We understand how your business works, then engineer the <span className="grad-text">software, AI and systems</span> it needs.</p>
+          <p className="jr-final-list">Business Analysis · Software · AI · Data · Automation</p>
           <div className="cta-row">
-            <Link href="/contact" className="btn btn-primary btn-lg">Book a free consultation</Link>
+            <Link href="/contact" className="btn btn-primary btn-lg">Start a transformation assessment</Link>
             <Link href="/ai" className="link-chev">See it in action <ChevronRight size={18} /></Link>
           </div>
         </div>

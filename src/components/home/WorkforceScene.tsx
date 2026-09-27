@@ -143,8 +143,8 @@ export default function WorkforceScene() {
       <p className="wf-bigword" aria-hidden="true">HIRED.</p>
 
       <p className="tile-eyebrow grad-text">Zyntraz AI</p>
-      <h2 className="wf-title">Meet your new <span className="grad-text">AI workforce.</span></h2>
-      <p className="tile-sub">They never sleep, never quit — and start on day one.</p>
+      <h2 className="wf-title">Meet the <span className="grad-text">Zyntraz AI</span> agents.</h2>
+      <p className="tile-sub">Always on, working inside your systems from day one. <em>Illustrative example — not client data.</em></p>
       <div className="tile-links">
         <Link href="/ai" className="btn btn-primary">Meet the team</Link>
         <Link href="/contact" className="link-chev">Book a demo <ChevronRight size={18} /></Link>
@@ -184,6 +184,7 @@ export default function WorkforceScene() {
         <span>Overtime paid <b>$0</b></span>
         <span>Sick days <b>0</b></span>
         <span>Tasks done today <b className="wf-count">1,284</b></span>
+        <span>Sample data, for illustration</span>
       </p>
     </article>
   );

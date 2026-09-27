@@ -144,7 +144,7 @@ export default function HeroCinematic() {
   }, []);
 
   return (
-    <section ref={ref} className="hx" aria-label="Zyntraz — intelligence, engineered">
+    <section ref={ref} className="hx" aria-label="Zyntraz — business transformation, engineered">
       <div className="hx-stage">
         <div className="hx-field" aria-hidden="true"><GradientField state={orb} /></div>
         <div className="hx-glow" aria-hidden="true" />
@@ -154,20 +154,20 @@ export default function HeroCinematic() {
 
         <div className="hx-intro">
           <h1 className="hx-title">
-            <span className="w">Intelligence,</span>{" "}
+            <span className="w">Business transformation,</span>{" "}
             <span className="w grad-text">engineered.</span>
           </h1>
           <p className="hx-sub hx-fade">
-            An AI-first engineering company. We build AI agents — plus the software, websites, web systems and custom platforms your business runs on.
+            We understand how your business works, then engineer the software, AI, data and automation it needs — from strategy to system.
           </p>
           <div className="hx-ctas hx-fade">
-            <Link href="/contact" className="btn btn-primary btn-lg">Book a free consultation</Link>
+            <Link href="/contact" className="btn btn-primary btn-lg">Start a transformation assessment</Link>
             <Link href="/ai" className="link-chev">See Zyntraz AI <ChevronRight size={18} /></Link>
           </div>
           <ul className="hx-trust hx-fade">
             <li><b>10+</b> systems engineered</li>
-            <li><b>15+</b> clients served</li>
-            <li><b>99.9%</b> reliability</li>
+            <li><b>5+</b> industries supported</li>
+            <li><b>100%</b> human-in-the-loop AI</li>
           </ul>
         </div>
 
@@ -185,8 +185,8 @@ export default function HeroCinematic() {
         </div>
 
         <div className="hx-final">
-          <h2>Meet your <span className="grad-text">AI workforce.</span></h2>
-          <p>Designed, built and deployed by Zyntraz — with your team always in control.</p>
+          <h2>That&apos;s <span className="grad-text">Zyntraz AI.</span></h2>
+          <p>One engine of your transformation — designed, built and deployed by Zyntraz, with your team always in control.</p>
           <div className="hx-ctas">
             <Link href="/ai" className="btn btn-primary btn-lg">Explore Zyntraz AI <ArrowRight size={17} /></Link>
             <Link href="/contact" className="link-chev">Book a demo <ChevronRight size={18} /></Link>

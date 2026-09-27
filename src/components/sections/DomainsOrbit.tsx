@@ -2,18 +2,18 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { ArrowRight, Boxes, BrainCircuit, Code2, Globe, LayoutDashboard } from "lucide-react";
+import { ArrowRight, Boxes, BrainCircuit, Code2, Compass, LayoutDashboard } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Grid slots around the AI core: top-left, top-right, bottom-left, bottom-right.
+// Grid slots around the business-understanding core: top-left, top-right, bottom-left, bottom-right.
 const nodes = [
-  { pos: "tl", icon: Code2, title: "Software Development", desc: "Scalable software, engineered from the ground up.", tags: ["Enterprise", "APIs", "Mobile-ready"] },
-  { pos: "tr", icon: Globe, title: "Web Development", desc: "Fast, modern websites that win customers.", tags: ["Corporate", "E-commerce", "Landing pages"] },
-  { pos: "bl", icon: LayoutDashboard, title: "Web System Development", desc: "Portals, dashboards and booking platforms.", tags: ["Portals", "Dashboards", "Booking"] },
-  { pos: "br", icon: Boxes, title: "Custom System Development", desc: "POS, CRM, ERP — built around how you work.", tags: ["POS & ERP", "CRM", "IoT & data"] },
+  { pos: "tl", icon: Code2, title: "Software & Custom Systems", desc: "POS, CRM, ERP, portals and web platforms, engineered around how you work.", tags: ["Web & software", "APIs", "Custom systems"] },
+  { pos: "tr", icon: BrainCircuit, title: "AI & Automation", desc: "Agents and workflow automation that act inside your systems, with your team in control.", tags: ["AI agents", "Workflow automation", "Human-in-the-loop"] },
+  { pos: "bl", icon: LayoutDashboard, title: "Data & Analytics", desc: "Dashboards, reporting and forecasting built on your real data.", tags: ["Dashboards", "Forecasting", "Reporting"] },
+  { pos: "br", icon: Boxes, title: "Connected Systems", desc: "Integrations, IoT and telemetry that link your operation together.", tags: ["Integrations", "IoT & telemetry", "APIs"] },
 ];
 
 // Beams run from the core's side edges to the nearest edge of each card. Uses offset* so
@@ -108,7 +108,7 @@ export default function DomainsOrbit() {
           <div className="container">
             <div className="hd-head">
               <p className="eyebrow">What we engineer</p>
-              <h2 id="hd-title" className="h-xl" data-reveal>AI first. <span className="grad-text">Everything else, engineered.</span></h2>
+              <h2 id="hd-title" className="h-xl" data-reveal>Business transformation, <span className="grad-text">engineered.</span></h2>
             </div>
 
             <div className="hd-orbit">
@@ -122,14 +122,14 @@ export default function DomainsOrbit() {
                 {nodes.map((n) => <path key={`f-${n.pos}`} className="hd-flow" />)}
               </svg>
 
-              <Link href="/ai" className="hd-core">
+              <Link href="/contact" className="hd-core">
                 <span className="hd-core-halo" aria-hidden="true" />
-                <span className="hd-core-badge">Our core</span>
-                <span className="hd-core-ico"><BrainCircuit size={30} /></span>
-                <h3>AI &amp; Agentic AI</h3>
-                <p>Agents, assistants and predictive models that reason and act across your business.</p>
-                <span className="hd-tags"><span>AI agents</span><span>LLM assistants</span><span>Automation</span><span>Analytics</span></span>
-                <span className="hd-core-cta">Explore Zyntraz AI <ArrowRight size={16} /></span>
+                <span className="hd-core-badge">Where we start</span>
+                <span className="hd-core-ico"><Compass size={30} /></span>
+                <h3>Business Understanding</h3>
+                <p>We map your operations, processes and goals before recommending any technology.</p>
+                <span className="hd-tags"><span>Process discovery</span><span>Workflow redesign</span><span>Roadmap &amp; architecture</span></span>
+                <span className="hd-core-cta">Start a transformation assessment <ArrowRight size={16} /></span>
               </Link>
 
               {nodes.map(({ pos, icon: Icon, title, desc, tags }) => (

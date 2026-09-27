@@ -1,10 +1,13 @@
 import { Coffee, LayoutGrid, Pizza } from "lucide-react";
 
-function MockupHeader({ url }: { url: string }) {
+function MockupHeader({ url, note = "Sample data" }: { url: string; note?: string }) {
   return (
     <div className="mockup-header">
       <div className="mockup-dot" /><div className="mockup-dot" /><div className="mockup-dot" />
       <span className="mockup-url">{url}</span>
+      <span style={{ marginLeft: "auto", flexShrink: 0, fontSize: 9, letterSpacing: ".05em", textTransform: "uppercase", color: "var(--dim)", opacity: .7 }}>
+        {note}
+      </span>
     </div>
   );
 }
@@ -73,7 +76,7 @@ export function ZynStayMockup() {
 export function ZynDeskMockup() {
   return (
     <div className="mockup-window" style={{ height: 380 }}>
-      <MockupHeader url="zyndesk.app / Inbox" />
+      <MockupHeader url="zyndesk.app / Inbox" note="Design preview" />
       <div className="mockup-body">
         <div className="desk-list" style={{ width: 150 }}>
           <div className="desk-ticket active"><span className="desk-tag critical">CRITICAL</span><b style={{ fontSize: 10 }}>Gateway Error</b></div>
@@ -99,7 +102,7 @@ export function ZynCRMMockup() {
   ];
   return (
     <div className="mockup-window" style={{ height: 380 }}>
-      <MockupHeader url="zyncrm.app / Pipeline" />
+      <MockupHeader url="zyncrm.app / Pipeline" note="Design preview" />
       <div className="mockup-body">
         <div className="crm-columns">
           {cols.map(([name, cards]) => (
@@ -117,12 +120,15 @@ export function ZynCRMMockup() {
 // Callout anchors are percentages of the mockup box, pointing at the part of the UI they describe.
 export type Callout = { x: number; y: number; label: string };
 
+export type ProductStatus = "available" | "soon";
+export const statusLabel: Record<ProductStatus, string> = { available: "Available now", soon: "Coming soon" };
+
 export const products: {
-  id: string; name: string; category: string; tagline: string; accent: string; mockup: React.ReactNode;
+  id: string; name: string; category: string; tagline: string; accent: string; mockup: React.ReactNode; status: ProductStatus;
   pain: string; desc: string; features: string[]; ai: string; callouts: Callout[];
 }[] = [
   {
-    id: "zynrest", name: "ZynRest", category: "Restaurant Management", tagline: "Every order. Every table. One system.", accent: "#0b5cff", mockup: <ZynRestMockup />,
+    id: "zynrest", name: "ZynRest", category: "Restaurant Management", tagline: "Every order. Every table. One system.", accent: "#0b5cff", mockup: <ZynRestMockup />, status: "available",
     pain: "Wrong orders, wasted stock and no idea which dishes actually make money?",
     desc: "An intelligent platform designed to manage restaurant operations, orders, inventory, and analytics from one unified dashboard.",
     features: ["Multi-terminal POS", "Live KDS system", "Real-time inventory", "Dynamic QR menus", "Staff shift tracking", "Recipe cost engine"],
@@ -133,7 +139,7 @@ export const products: {
     ],
   },
   {
-    id: "zynstay", name: "ZynStay", category: "Hospitality Platform", tagline: "Fuller rooms. Happier guests.", accent: "#4f46e5", mockup: <ZynStayMockup />,
+    id: "zynstay", name: "ZynStay", category: "Hospitality Platform", tagline: "Fuller rooms. Happier guests.", accent: "#4f46e5", mockup: <ZynStayMockup />, status: "available",
     pain: "Double bookings, empty rooms and housekeeping chaos?",
     desc: "A comprehensive hospitality management platform for hotels, resorts, and event venues to streamline guest experiences.",
     features: ["Centralized booking", "Event & banquet", "Housekeeping logic", "Dynamic pricing", "Channel sync", "Revenue forecasting"],
@@ -144,7 +150,7 @@ export const products: {
     ],
   },
   {
-    id: "zyndesk", name: "ZynDesk", category: "Support & Ticketing", tagline: "Support that never sleeps.", accent: "#7c3aed", mockup: <ZynDeskMockup />,
+    id: "zyndesk", name: "ZynDesk", category: "Support & Ticketing", tagline: "Every ticket owned, tracked and resolved.", accent: "#7c3aed", mockup: <ZynDeskMockup />, status: "soon",
     pain: "Customer complaints lost in inboxes and nobody owning the fix?",
     desc: "A powerful helpdesk system to manage customer support operations efficiently — every ticket tracked, prioritised and resolved on time.",
     features: ["SLA ticket tracking", "Omni-channel inboxes", "AI ticket triage", "Self-serve knowledge base"],
@@ -155,7 +161,7 @@ export const products: {
     ],
   },
   {
-    id: "zyncrm", name: "ZynCRM", category: "Customer Relationship", tagline: "No lead left behind.", accent: "#0891b2", mockup: <ZynCRMMockup />,
+    id: "zyncrm", name: "ZynCRM", category: "Customer Relationship", tagline: "No lead left behind.", accent: "#0891b2", mockup: <ZynCRMMockup />, status: "soon",
     pain: "Leads going cold because nobody followed up?",
     desc: "A smart CRM system designed to manage leads, track sales pipelines, and improve growth.",
     features: ["Visual pipeline tracking", "Follow-up automation", "Predictive lead scoring", "Invoice & quote generator"],

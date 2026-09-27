@@ -242,7 +242,8 @@ export default function CapabilityStack() {
     <section ref={ref} className="cap" id="capabilities">
       <div className="container cap-head">
         <p className="eyebrow" data-reveal>Capabilities</p>
-        <h2 className="h-xl" data-reveal>One team. <span className="grad-text">Every kind of AI.</span></h2>
+        <h2 className="h-xl" data-reveal>Agentic workflows first. <span className="grad-text">The rest, on tap.</span></h2>
+        <p className="lede" data-reveal>Agents and workflow automation are where we go deepest. The rest of the stack comes in as your systems need it.</p>
       </div>
       <div className="cap-pin">
         <div className="cap-stage">

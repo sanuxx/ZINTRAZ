@@ -56,7 +56,7 @@ export default function Header() {
             <Link key={l.href} href={l.href} style={{ ["--i" as string]: i + 1 }} onClick={close}>{l.label}</Link>
           ))}
         </nav>
-        <Link href="/contact" className="btn btn-primary btn-lg" style={{ ["--i" as string]: navLinks.length + 1 }} onClick={close}>Book a free consultation</Link>
+        <Link href="/contact" className="btn btn-primary btn-lg" style={{ ["--i" as string]: navLinks.length + 1 }} onClick={close}>Start a transformation assessment</Link>
       </div>
     </>
   );

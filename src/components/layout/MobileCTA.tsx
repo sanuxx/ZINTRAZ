@@ -21,7 +21,7 @@ export default function MobileCTA() {
 
   return (
     <div className={`mcta${shown ? " is-shown" : ""}`} aria-hidden={!shown} inert={!shown}>
-      <Link href="/contact" className="btn btn-primary mcta-main">Book a free consultation</Link>
+      <Link href="/contact" className="btn btn-primary mcta-main">Start a transformation assessment</Link>
       <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="mcta-wa" aria-label="Chat on WhatsApp">
         <MessageCircle size={22} />
       </a>

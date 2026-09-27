@@ -24,7 +24,7 @@ export default function Contact() {
       "",
       String(f.get("message")),
     ].join("\n");
-    const subject = `Free consultation request — ${f.get("company") || f.get("name")}`;
+    const subject = `Transformation assessment request — ${f.get("company") || f.get("name")}`;
     window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSent(true);
   };
@@ -37,12 +37,12 @@ export default function Contact() {
           Ready to build your<br /><span className="grad-text">next digital system?</span>
         </h2>
         <p className="lede final-sub" data-reveal style={{ ["--d" as string]: ".1s" }}>
-          Free consultation, no commitment. Connect with our architects to scope your requirements — we&apos;ll tell you
-          exactly what&apos;s possible and outline a scalable roadmap.
+          No commitment. We&apos;ll map your current operations, show you where time and money leak out, and outline
+          exactly what&apos;s possible.
         </p>
         <div className="final-ctas" data-reveal style={{ ["--d" as string]: ".2s" }}>
           <MagneticButton>
-            <a href="#contact-form" className="btn btn-primary btn-lg">Book a free consultation <ArrowRight size={17} /></a>
+            <a href="#contact-form" className="btn btn-primary btn-lg">Start a transformation assessment <ArrowRight size={17} /></a>
           </MagneticButton>
           <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-lg">
             <MessageCircle size={17} /> Chat on WhatsApp
@@ -51,13 +51,13 @@ export default function Contact() {
 
         <div className="glass contact-card" data-reveal>
           <div>
-            <span className="eyebrow">Your free consultation</span>
+            <span className="eyebrow">Your transformation assessment</span>
             <h3 className="h-md" style={{ marginTop: 18, fontSize: "clamp(26px, 2.6vw, 36px)" }}>What you get — before you spend a cent.</h3>
             <ul className="audit-list">
               <li><Check size={18} /> A walkthrough of your current operations and where time and money leak out</li>
               <li><Check size={18} /> Honest advice on what to automate — and where AI agents will pay off first</li>
               <li><Check size={18} /> A clear roadmap, timeline and estimate for your system</li>
-              <li><Check size={18} /> A reply within 24 hours</li>
+              <li><Check size={18} /> After that: a reply within 24 hours, then we stay with you through build, launch and beyond — we don&apos;t disappear</li>
             </ul>
             <div className="contact-list">
               <a className="contact-link" href={`mailto:${EMAIL}`}>
@@ -104,8 +104,8 @@ export default function Contact() {
                 <label>What&apos;s slowing your business down?
                   <textarea name="message" required rows={4} placeholder="e.g. We manage stock in spreadsheets and orders over WhatsApp…" />
                 </label>
-                <button type="submit" className="btn btn-primary btn-lg">Request my free consultation <Send size={16} /></button>
-                <p className="form-note">No spam, no obligation. We reply within 24 hours.</p>
+                <button type="submit" className="btn btn-primary btn-lg">Request my transformation assessment <Send size={16} /></button>
+                <p className="form-note">No spam, no obligation.</p>
               </form>
             )}
           </div>

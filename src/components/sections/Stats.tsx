@@ -5,9 +5,9 @@ import gsap from "gsap";
 
 const stats = [
   { target: 10, suffix: "+", label: "Systems engineered" },
-  { target: 15, suffix: "+", label: "Clients served" },
-  { target: 5, suffix: "+", label: "Industries" },
-  { target: 99.9, suffix: "%", label: "Reliability" },
+  { target: 5, suffix: "+", label: "Industries supported" },
+  { target: 2, suffix: "", label: "Platforms live today" },
+  { target: 100, suffix: "%", label: "Human-in-the-loop on every agent" },
 ];
 
 export default function Stats() {

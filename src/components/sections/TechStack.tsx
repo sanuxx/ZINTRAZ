@@ -16,8 +16,8 @@ export default function TechStack() {
     <section className="tech" id="tech">
       <div className="container">
         <div className="section-head center">
-          <span className="eyebrow" data-reveal>Technology stack</span>
-          <p className="lede" data-reveal>Built on modern, industry-standard frameworks — the same technology that powers modern enterprises.</p>
+          <span className="eyebrow" data-reveal>Engineering capabilities</span>
+          <p className="lede" data-reveal>The toolkit underneath every system we build — not the pitch, just what it&apos;s built on.</p>
         </div>
       </div>
       <Row items={row1} />

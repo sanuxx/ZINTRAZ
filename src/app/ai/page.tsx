@@ -17,7 +17,7 @@ export default function AIPage() {
         eyebrow="Zyntraz AI"
         title={<>AI that doesn&apos;t just talk.<br /><span className="grad-text">It works.</span></>}
         lede={<>We design, build and deploy AI agents that understand requests, reason through the steps and <strong>take action across your systems</strong> — around the clock, with your team in control.</>}
-        primary={{ label: "Book a free consultation", href: "/contact" }}
+        primary={{ label: "Talk to an AI architect", href: "/contact" }}
         secondary={{ label: "Watch an agent work", href: "#demo" }}
       >
         <OrbVisual />

@@ -71,7 +71,7 @@ export default function ProductsHero() {
         <p className="phero-eyebrow" data-reveal>Zyntraz Platforms</p>
         <h1 className="h-hero" data-reveal>Platforms,<br /><span className="grad-text">ready to run.</span></h1>
         <p className="lede ph-lede" data-reveal>
-          Proprietary systems designed for operational dominance — <strong>deployed fast</strong>, then tailored to the way
+          Purpose-built platforms — <strong>deployed fast</strong>, then tailored to the way
           your business works. Every one is AI-ready.
         </p>
         <div className="cta-row" data-reveal>
@@ -85,7 +85,7 @@ export default function ProductsHero() {
             <div key={p.id} className="ph-card" style={{ ["--c" as string]: p.accent }}>
               <div className="ph-enter">
                 <div className="ph-float">
-                  <span className="ph-card-label">{p.name}</span>
+                  <span className="ph-card-label">{p.name}{p.status === "soon" && <small> · Coming soon</small>}</span>
                   {p.mockup}
                 </div>
               </div>

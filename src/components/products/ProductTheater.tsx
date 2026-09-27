@@ -6,7 +6,7 @@ import { AlertCircle, CheckCircle2, Sparkles } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitText from "gsap/SplitText";
-import { products } from "@/components/sections/Products";
+import { products, statusLabel } from "@/components/sections/Products";
 import { scroll } from "@/lib/scroll";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -94,14 +94,19 @@ export default function ProductTheater() {
           <div className="pt-stage">
             <div className="container pt-grid">
               <div className="pt-copy">
-                <p className="pt-cat"><span>{String(i + 1).padStart(2, "0")}</span>{p.category}</p>
+                <p className="pt-cat">
+                  <span>{String(i + 1).padStart(2, "0")}</span>{p.category}
+                  <em className={`pstatus pstatus-${p.status}`}>{statusLabel[p.status]}</em>
+                </p>
                 <h2 className="pt-name">{p.name}</h2>
                 <p className="pt-tag">{p.tagline}</p>
                 <p className="pt-pain"><AlertCircle size={17} /> {p.pain}</p>
                 <p className="pt-desc">{p.desc}</p>
                 <ul className="pt-feats">{p.features.map((f) => <li key={f}><CheckCircle2 size={15} /> {f}</li>)}</ul>
                 <p className="pt-ai"><Sparkles size={15} /> {p.ai}</p>
-                <Link href="/contact" className="btn btn-primary pt-cta">Book a {p.name} demo</Link>
+                <Link href="/contact" className="btn btn-primary pt-cta">
+                  {p.status === "available" ? `Book a ${p.name} demo` : `Register interest in ${p.name}`}
+                </Link>
               </div>
               <div className="pt-visual">
                 <div className="pt-glow" aria-hidden="true" />

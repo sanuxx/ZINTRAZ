@@ -568,6 +568,11 @@ html.rm .jr + .hpain { margin-top: 0; border-radius: 0; }
 .pt-copy { display: grid; gap: 12px; align-content: center; }
 .pt-cat { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: var(--c); }
 .pt-cat span { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--c) 40%, transparent); font-size: 11px; }
+.pstatus { display: inline-flex; align-items: center; gap: 6px; font-style: normal; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 980px; white-space: nowrap; }
+.pstatus::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.pstatus-available { color: #0a8f63; background: rgba(10,143,99,.1); }
+.pstatus-soon { color: #b76e00; background: rgba(245,158,11,.14); }
+.ph-card-label small { font-size: inherit; font-weight: 500; color: #86868b; }
 .pt-name { font-size: clamp(48px, 6vw, 88px); font-weight: 600; letter-spacing: -0.045em; line-height: 1.12; }
 .pt-tag { font-size: clamp(20px, 1.9vw, 26px); font-weight: 500; letter-spacing: -0.02em; color: #1d1d1f; }
 .pt-pain { display: flex; gap: 8px; align-items: flex-start; font-size: 15px; color: var(--pain); }
@@ -653,6 +658,13 @@ html.rm .jr + .hpain { margin-top: 0; border-radius: 0; }
 .ind ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .ind li { display: flex; gap: 10px; align-items: center; font-size: 15px; color: var(--muted); }
 .ind li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--electric); flex-shrink: 0; }
+.ind-fit { font-size: 14px; color: var(--text); padding-top: 16px; border-top: 1px solid var(--line); }
+.ind-fit b { color: var(--electric); font-weight: 600; margin-right: 4px; }
+.hplat .ind li a { flex: 1; min-width: 0; display: grid; gap: 2px; color: var(--text); text-decoration: none; }
+.hplat .ind li a small { font-size: 13px; color: var(--muted); }
+.hplat .ind li a:hover { color: var(--electric); }
+.hplat .ind li .pstatus { margin-left: auto; }
+.hplat .cta-row { margin-top: 40px; }
 @media (max-width: 960px) { .ind-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .ind-grid { grid-template-columns: 1fr; } }
 

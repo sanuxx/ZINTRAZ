@@ -16,7 +16,7 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title={<>Engineering,<br /><span className="grad-text">end to end.</span></>}
-        lede={<>AI-first — and full-stack. We design, build, secure and scale <strong>AI agents, software, websites, web systems and custom platforms</strong>, with real progress every week.</>}
+        lede={<>We understand how your business works, then engineer <strong>the software, AI, data and automation</strong> it needs — with real progress every week.</>}
         primary={{ label: "Start a project", href: "/contact" }}
         secondary={{ label: "See how we work", href: "#process" }}
       />

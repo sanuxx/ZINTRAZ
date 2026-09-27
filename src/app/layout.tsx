@@ -12,15 +12,15 @@ const display = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ["500", "600", "
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sanuxx.github.io/ZYNTRAZ/"),
-  title: { default: "Zyntraz — Intelligence, engineered.", template: "%s — Zyntraz" },
+  title: { default: "Zyntraz — Business transformation, engineered.", template: "%s — Zyntraz" },
   description:
-    "Zyntraz is an AI-first engineering company. We build AI agents, custom software, websites, web systems and custom business systems. Book a free consultation.",
+    "Zyntraz is a business transformation engineering company. We understand how your business works, then build the software, AI, data and automation it needs. Start a transformation assessment.",
   // The full wordmark is a wide rectangle — squished into a browser tab's square favicon slot it
   // reads as an illegible sliver, so the tab icon uses just the arrow accent cropped from it instead.
   icons: { icon: `${BASE_PATH}/zyntraz-mark.png` },
   openGraph: {
-    title: "Zyntraz — Intelligence, engineered.",
-    description: "AI-first engineering company: AI agents, software development, web development, web systems and custom system development.",
+    title: "Zyntraz — Business transformation, engineered.",
+    description: "Business transformation engineering: business analysis, software development, AI & automation, data and custom systems.",
     images: ["/zyntraz-logo.png"],
   },
 };

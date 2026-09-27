@@ -17,7 +17,7 @@ export default function SolutionsPage() {
         eyebrow="Use cases"
         title={<>Every problem<br /><span className="grad-text">has a system.</span></>}
         lede={<>Most growing businesses don&apos;t have a people problem or a demand problem. <strong>They have an operations problem.</strong> We build the system that fixes it.</>}
-        primary={{ label: "Book a free consultation", href: "/contact" }}
+        primary={{ label: "Start a transformation assessment", href: "/contact" }}
         secondary={{ label: "Calculate your hidden cost", href: "#calculator" }}
       />
       <PainPoints />
