@@ -15,7 +15,6 @@ import { whenReady } from "@/lib/scroll";
 gsap.registerPlugin(ScrollTrigger);
 
 const Orb = dynamic(() => import("@/components/3d/Orb"), { ssr: false });
-const GradientField = dynamic(() => import("@/components/3d/GradientField"), { ssr: false });
 
 // Offsets are fractions of the viewport (x of width, y of height), relative to the orb centre.
 const inputs = [
@@ -43,7 +42,7 @@ const outputs = [
   { icon: CheckCircle2, text: "Customer case resolved", to: [0, 0.31] },
 ];
 
-export default function HeroCinematic() {
+export default function AIHero() {
   const ref = useRef<HTMLElement>(null);
   const orb = useRef<OrbState>(createOrbState());
 
@@ -144,31 +143,27 @@ export default function HeroCinematic() {
   }, []);
 
   return (
-    <section ref={ref} className="hx" aria-label="Zyntraz — business transformation, engineered">
+    <section ref={ref} className="hx" aria-label="Zyntraz AI — AI that doesn't just talk, it works">
       <div className="hx-stage">
-        <div className="hx-field" aria-hidden="true"><GradientField state={orb} /></div>
+        <div className="hx-nebula" aria-hidden="true"><i /><i /></div>
         <div className="hx-glow" aria-hidden="true" />
         <div className="hx-orb" aria-hidden="true">
-          <div className="hx-orb-inner"><Orb state={orb} light /></div>
+          <div className="hx-orb-inner"><Orb state={orb} /></div>
         </div>
 
         <div className="hx-intro">
+          <p className="eyebrow hx-fade">Zyntraz AI</p>
           <h1 className="hx-title">
-            <span className="w">Business transformation,</span>{" "}
-            <span className="w grad-text">engineered.</span>
+            <span className="w">AI that doesn&apos;t just talk.</span>{" "}
+            <span className="w grad-text">It works.</span>
           </h1>
           <p className="hx-sub hx-fade">
-            We understand how your business works, then engineer the software, AI, data and automation it needs — from strategy to system.
+            We design, build and deploy AI agents that understand requests, reason through the steps and take action across your systems — with your team in control.
           </p>
           <div className="hx-ctas hx-fade">
-            <Link href="/contact" className="btn btn-primary btn-lg">Start a transformation assessment</Link>
-            <Link href="/ai" className="link-chev">See Zyntraz AI <ChevronRight size={18} /></Link>
+            <Link href="/contact" className="btn btn-primary btn-lg">Talk to an AI architect</Link>
+            <a href="#demo" className="link-chev">Watch an agent work <ChevronRight size={18} /></a>
           </div>
-          <ul className="hx-trust hx-fade">
-            <li><b>10+</b> systems engineered</li>
-            <li><b>5+</b> industries supported</li>
-            <li><b>100%</b> human-in-the-loop AI</li>
-          </ul>
         </div>
 
         <div className="hx-beat hx-b1">
@@ -188,8 +183,8 @@ export default function HeroCinematic() {
           <h2>That&apos;s <span className="grad-text">Zyntraz AI.</span></h2>
           <p>One engine of your transformation — designed, built and deployed by Zyntraz, with your team always in control.</p>
           <div className="hx-ctas">
-            <Link href="/ai" className="btn btn-primary btn-lg">Explore Zyntraz AI <ArrowRight size={17} /></Link>
-            <Link href="/contact" className="link-chev">Book a demo <ChevronRight size={18} /></Link>
+            <a href="#demo" className="btn btn-primary btn-lg">See an agent at work <ArrowRight size={17} /></a>
+            <Link href="/contact" className="link-chev">Talk to an AI architect <ChevronRight size={18} /></Link>
           </div>
         </div>
 

@@ -123,12 +123,17 @@ export type Callout = { x: number; y: number; label: string };
 export type ProductStatus = "available" | "soon";
 export const statusLabel: Record<ProductStatus, string> = { available: "Available now", soon: "Coming soon" };
 
+// Where the product sits in the operation: who arrives, through what, what it runs, and what Zyntraz AI adds on top.
+export type Ecosystem = { who: string; channel: string; where: string; runs: string[]; ai: string[] };
+
 export const products: {
-  id: string; name: string; category: string; tagline: string; accent: string; mockup: React.ReactNode; status: ProductStatus;
+  id: string; name: string; category: string; tagline: string; accent: string; mood: "warm" | "calm" | "talk" | "growth";
+  mockup: React.ReactNode; status: ProductStatus; eco: Ecosystem;
   pain: string; desc: string; features: string[]; ai: string; callouts: Callout[];
 }[] = [
   {
-    id: "zynrest", name: "ZynRest", category: "Restaurant Management", tagline: "Every order. Every table. One system.", accent: "#0b5cff", mockup: <ZynRestMockup />, status: "available",
+    id: "zynrest", name: "ZynRest", category: "Restaurant Management", tagline: "Every order. Every table. One system.", accent: "#ea580c", mood: "warm", mockup: <ZynRestMockup />, status: "available",
+    eco: { who: "Diners", channel: "Table, QR menu & counter", where: "a restaurant", runs: ["POS", "Kitchen display", "Inventory", "QR menus", "Staff shifts", "Recipe costs"], ai: ["Demand forecasting", "Automatic reorders"] },
     pain: "Wrong orders, wasted stock and no idea which dishes actually make money?",
     desc: "An intelligent platform designed to manage restaurant operations, orders, inventory, and analytics from one unified dashboard.",
     features: ["Multi-terminal POS", "Live KDS system", "Real-time inventory", "Dynamic QR menus", "Staff shift tracking", "Recipe cost engine"],
@@ -139,7 +144,8 @@ export const products: {
     ],
   },
   {
-    id: "zynstay", name: "ZynStay", category: "Hospitality Platform", tagline: "Fuller rooms. Happier guests.", accent: "#4f46e5", mockup: <ZynStayMockup />, status: "available",
+    id: "zynstay", name: "ZynStay", category: "Hospitality Platform", tagline: "Fuller rooms. Happier guests.", accent: "#0e7490", mood: "calm", mockup: <ZynStayMockup />, status: "available",
+    eco: { who: "Guests", channel: "Booking channels & front desk", where: "a hotel", runs: ["Bookings", "Channel sync", "Housekeeping", "Events & banquets", "Dynamic pricing", "Revenue forecasts"], ai: ["Booking agent on WhatsApp"] },
     pain: "Double bookings, empty rooms and housekeeping chaos?",
     desc: "A comprehensive hospitality management platform for hotels, resorts, and event venues to streamline guest experiences.",
     features: ["Centralized booking", "Event & banquet", "Housekeeping logic", "Dynamic pricing", "Channel sync", "Revenue forecasting"],
@@ -150,7 +156,8 @@ export const products: {
     ],
   },
   {
-    id: "zyndesk", name: "ZynDesk", category: "Support & Ticketing", tagline: "Every ticket owned, tracked and resolved.", accent: "#7c3aed", mockup: <ZynDeskMockup />, status: "soon",
+    id: "zyndesk", name: "ZynDesk", category: "Support & Ticketing", tagline: "Every ticket owned, tracked and resolved.", accent: "#7c3aed", mood: "talk", mockup: <ZynDeskMockup />, status: "soon",
+    eco: { who: "Customers", channel: "Email, chat & more", where: "support", runs: ["Omni-channel inbox", "SLA tracking", "Knowledge base"], ai: ["Ticket triage", "Suggested replies"] },
     pain: "Customer complaints lost in inboxes and nobody owning the fix?",
     desc: "A powerful helpdesk system to manage customer support operations efficiently — every ticket tracked, prioritised and resolved on time.",
     features: ["SLA ticket tracking", "Omni-channel inboxes", "AI ticket triage", "Self-serve knowledge base"],
@@ -161,7 +168,8 @@ export const products: {
     ],
   },
   {
-    id: "zyncrm", name: "ZynCRM", category: "Customer Relationship", tagline: "No lead left behind.", accent: "#0891b2", mockup: <ZynCRMMockup />, status: "soon",
+    id: "zyncrm", name: "ZynCRM", category: "Customer Relationship", tagline: "No lead left behind.", accent: "#16a34a", mood: "growth", mockup: <ZynCRMMockup />, status: "soon",
+    eco: { who: "Leads", channel: "Every enquiry channel", where: "sales", runs: ["Pipeline", "Follow-ups", "Quotes & invoices"], ai: ["Predictive lead scoring", "Automated follow-ups"] },
     pain: "Leads going cold because nobody followed up?",
     desc: "A smart CRM system designed to manage leads, track sales pipelines, and improve growth.",
     features: ["Visual pipeline tracking", "Follow-up automation", "Predictive lead scoring", "Invoice & quote generator"],

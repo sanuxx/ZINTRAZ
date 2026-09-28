@@ -90,7 +90,7 @@ export default function ProductTheater() {
       </nav>
 
       {products.map((p, i) => (
-        <section key={p.id} id={p.id} className={`pt-scene${i % 2 ? " flip" : ""}`} style={{ ["--c" as string]: p.accent }}>
+        <section key={p.id} id={p.id} className={`pt-scene${i % 2 ? " flip" : ""}`} data-mood={p.mood} style={{ ["--c" as string]: p.accent }}>
           <div className="pt-stage">
             <div className="container pt-grid">
               <div className="pt-copy">
@@ -120,6 +120,22 @@ export default function ProductTheater() {
                   ))}
                 </div>
               </div>
+            </div>
+            <div className="container pt-eco">
+              <p className="pt-eco-cap">How {p.name} {p.status === "available" ? "runs" : "will run"} {p.eco.where}</p>
+              <ol className="pt-eco-flow">
+                <li data-reveal><small>Who</small><b>{p.eco.who}</b></li>
+                <li data-reveal style={{ ["--d" as string]: ".08s" }}><small>Through</small><b>{p.eco.channel}</b></li>
+                <li data-reveal className="is-core" style={{ ["--d" as string]: ".16s" }}><small>Platform</small><b>{p.name}</b></li>
+                <li data-reveal className="is-runs" style={{ ["--d" as string]: ".24s" }}>
+                  <small>Runs</small>
+                  <span>{p.eco.runs.map((r) => <i key={r}>{r}</i>)}</span>
+                </li>
+                <li data-reveal className="is-ai" style={{ ["--d" as string]: ".32s" }}>
+                  <small><Sparkles size={12} /> Zyntraz AI add-on</small>
+                  <span>{p.eco.ai.map((r) => <i key={r}>{r}</i>)}</span>
+                </li>
+              </ol>
             </div>
           </div>
         </section>

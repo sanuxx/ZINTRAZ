@@ -7,12 +7,11 @@ import { usePathname } from "next/navigation";
 import { BASE_PATH } from "@/lib/site";
 
 export const navLinks = [
+  { label: "Transformation", href: "/solutions" },
+  { label: "Engineering", href: "/services" },
   { label: "AI", href: "/ai" },
-  { label: "Products", href: "/products" },
-  { label: "Services", href: "/services" },
-  { label: "Use cases", href: "/solutions" },
+  { label: "Platforms", href: "/products" },
   { label: "Company", href: "/company" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
@@ -42,7 +41,7 @@ export default function Header() {
               <Link key={l.href} href={l.href} className={pathname.startsWith(l.href) ? "is-active" : undefined}>{l.label}</Link>
             ))}
           </nav>
-          <Link href="/contact" className="gnav-cta">Book a demo</Link>
+          <Link href="/contact" className="gnav-cta">Start a transformation</Link>
           <button className="gnav-burger" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} onClick={() => setOpen((o) => !o)}>
             <span /><span />
           </button>

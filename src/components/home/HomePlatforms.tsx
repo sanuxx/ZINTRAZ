@@ -21,38 +21,27 @@ export default function HomePlatforms() {
           </p>
         </div>
 
-        <div className="ind-grid">
+        <div className="hplat-cols">
           {groups.map(({ name, icon: Icon, ids }, i) => (
-            <article key={name} className="glass spot ind" data-reveal style={{ ["--d" as string]: `${i * 0.08}s` }}>
-              <div className="ind-head">
-                <span className="ind-ico"><Icon size={22} /></span>
-                <h3>{name}</h3>
-              </div>
+            <div key={name} className="hplat-col" data-reveal style={{ ["--d" as string]: `${i * 0.08}s` }}>
+              <h3><Icon size={20} /> {name}</h3>
               <ul>
                 {ids.map((id) => {
                   const p = products.find((x) => x.id === id)!;
                   return (
-                    <li key={id}>
+                    <li key={id} style={{ ["--c" as string]: p.accent }}>
                       <Link href={`/products#${p.id}`}><b>{p.name}</b><small>{p.category}</small></Link>
                       <em className={`pstatus pstatus-${p.status}`}>{statusLabel[p.status]}</em>
                     </li>
                   );
                 })}
               </ul>
-            </article>
-          ))}
-          <article className="glass spot ind" data-reveal style={{ ["--d" as string]: ".16s" }}>
-            <div className="ind-head">
-              <span className="ind-ico"><Boxes size={22} /></span>
-              <h3>Custom platforms</h3>
             </div>
-            <ul>
-              <li>Business systems &amp; portals</li>
-              <li>E-commerce &amp; dashboards</li>
-              <li>Workflow &amp; analytics platforms</li>
-            </ul>
-            <p className="ind-fit"><b>Fit:</b> when no ready-made product matches your operation</p>
-          </article>
+          ))}
+          <div className="hplat-col" data-reveal style={{ ["--d" as string]: ".16s" }}>
+            <h3><Boxes size={20} /> Custom platforms</h3>
+            <p className="hplat-custom">Business systems, portals, e-commerce, dashboards and workflow platforms — built from scratch when no ready-made product fits your operation.</p>
+          </div>
         </div>
 
         <div className="cta-row center" data-reveal>

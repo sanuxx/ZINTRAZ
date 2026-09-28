@@ -42,15 +42,15 @@ export default function Positioning() {
           Your workflows, your people, your goals. Every business operates differently — so every system we build does too.
         </p>
 
-        <div className="promise-grid">
+        <ol className="why-list promise-list">
           {promises.map(({ icon: Icon, title, desc }, i) => (
-            <div key={title} className="glass spot promise" data-reveal style={{ ["--d" as string]: `${i * 0.08}s` }}>
-              <Icon className="promise-ico" size={26} />
+            <li key={title} className="why-row" data-reveal style={{ ["--d" as string]: `${i * 0.08}s` }}>
+              <span className="why-num"><Icon size={22} /></span>
               <h3>{title}</h3>
               <p>{desc}</p>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

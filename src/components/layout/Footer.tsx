@@ -6,11 +6,11 @@ import { BASE_PATH } from "@/lib/site";
 import MotionToggle from "@/components/ui/MotionToggle";
 
 const cols = [
+  { title: "Transformation", links: [["Problems we solve", "/solutions#problems"], ["Cost calculator", "/solutions#calculator"], ["Industries", "/solutions#industries"]] },
+  { title: "Engineering", links: [["What we engineer", "/services#services"], ["How we work", "/services#process"], ["Engineering capabilities", "/services#tech"]] },
   { title: "AI", links: [["Zyntraz AI", "/ai"], ["Agent demo", "/ai#demo"], ["Capabilities", "/ai#capabilities"], ["Trust & safety", "/ai#trust"]] },
-  { title: "Services", links: [["Software development", "/services"], ["Web development", "/services"], ["Web systems", "/services"], ["Custom systems", "/services"]] },
-  { title: "Products", links: [["ZynRest", "/products#zynrest"], ["ZynStay", "/products#zynstay"], ["ZynDesk", "/products#zyndesk"], ["ZynCRM", "/products#zyncrm"]] },
-  { title: "Use cases", links: [["Problems we solve", "/solutions#problems"], ["Cost calculator", "/solutions#calculator"], ["Industries", "/solutions#industries"]] },
-  { title: "Company", links: [["About Zyntraz", "/company"], ["How we work", "/services#process"], ["FAQ", "/contact#faq"]] },
+  { title: "Platforms", links: [["ZynRest", "/products#zynrest"], ["ZynStay", "/products#zynstay"], ["ZynDesk (coming soon)", "/products#zyndesk"], ["ZynCRM (coming soon)", "/products#zyncrm"]] },
+  { title: "Company", links: [["About Zyntraz", "/company"], ["Start a transformation", "/contact"], ["FAQ", "/contact#faq"]] },
 ];
 
 export default function Footer() {
@@ -19,14 +19,14 @@ export default function Footer() {
       <footer className="gfoot">
         <div className="container">
           <p className="gfoot-note">
-            Free consultation, no commitment. <Link href="/contact">Talk to an architect</Link> or chat with us on{" "}
+            No commitment. <Link href="/contact">Start a transformation assessment</Link> or chat with us on{" "}
             <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">WhatsApp</a>.
           </p>
           <div className="gfoot-cols">
             {cols.map((c) => (
               <div key={c.title}>
                 <h4>{c.title}</h4>
-                <ul>{c.links.map(([l, h]) => <li key={h}><Link href={h}>{l}</Link></li>)}</ul>
+                <ul>{c.links.map(([l, h]) => <li key={l}><Link href={h}>{l}</Link></li>)}</ul>
               </div>
             ))}
             <div>

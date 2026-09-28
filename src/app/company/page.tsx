@@ -3,6 +3,7 @@ import PageHero from "@/components/layout/PageHero";
 import CTABand from "@/components/layout/CTABand";
 import Positioning from "@/components/sections/Positioning";
 import Stats from "@/components/sections/Stats";
+import SystemMap from "@/components/sections/SystemMap";
 
 export const metadata: Metadata = {
   title: "Company — we rebuild how businesses operate",
@@ -19,8 +20,9 @@ export default function CompanyPage() {
         primary={{ label: "Work with us", href: "/contact" }}
         secondary={{ label: "Explore Zyntraz AI", href: "/ai" }}
       />
-      <Stats />
+      <SystemMap />
       <Positioning />
+      <Stats />
       <CTABand />
     </div>
   );
