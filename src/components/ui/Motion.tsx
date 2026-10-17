@@ -50,12 +50,6 @@ export default function Motion() {
           });
         });
 
-        // Product screens tilt up and flatten as they arrive.
-        gsap.utils.toArray<HTMLElement>(".pshow-visual .mockup-window").forEach((m) => {
-          gsap.fromTo(m, { rotationX: 26, scale: 0.84, transformPerspective: 1600, transformOrigin: "50% 100%" }, {
-            rotationX: 0, scale: 1, ease: "none", scrollTrigger: { trigger: m, start: "top 98%", end: "top 30%", scrub: true },
-          });
-        });
 
         // Page intros drift up and fade as you scroll away; their visuals grow toward you.
         gsap.utils.toArray<HTMLElement>(".phero").forEach((hero) => {

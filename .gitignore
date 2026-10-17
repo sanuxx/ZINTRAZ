@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# example env file is committed; real ones are not
+!.env.example
+
+# blueprint submissions saved by the production server
+/data/

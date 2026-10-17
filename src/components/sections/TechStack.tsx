@@ -1,5 +1,6 @@
-const row1 = ["React", "Next.js", "Tailwind CSS", "Node.js", "Python", "PHP", "TypeScript", "PostgreSQL", "REST & GraphQL APIs"];
-const row2 = ["AI Agents", "LLMs", "RAG Pipelines", "Vector Databases", "TensorFlow", "PyTorch", "AWS", "Docker", "Kubernetes"];
+const row1 = ["React", "Next.js", "Tailwind CSS", "Node.js", "Python", "PHP", "Laravel", "TypeScript", "Flutter", "React Native", "REST & GraphQL APIs"];
+const row2 = ["AI Agents", "LLMs", "Claude & OpenAI APIs", "RAG Pipelines", "Vector Databases", "TensorFlow", "PyTorch", "OpenCV", "Computer Vision", "Power BI", "Pandas"];
+const row3 = ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Firebase", "AWS", "Azure", "Google Cloud", "Docker", "Kubernetes", "GitHub Actions", "MQTT", "ESP32", "Raspberry Pi", "Shopify", "WooCommerce"];
 
 function Row({ items, reverse }: { items: string[]; reverse?: boolean }) {
   return (
@@ -22,7 +23,13 @@ export default function TechStack() {
       </div>
       <Row items={row1} />
       <Row items={row2} reverse />
-      <p className="sr-only">Frontend: React, Next.js, Tailwind CSS. Backend: Node.js, Python, PHP. AI: AI agents, LLMs, RAG pipelines, vector databases, TensorFlow, PyTorch. Cloud: AWS, Docker, Kubernetes.</p>
+      <Row items={row3} />
+      <p className="sr-only">
+        Web and mobile: React, Next.js, Tailwind CSS, TypeScript, Flutter, React Native. Backend: Node.js, Python, PHP, Laravel, REST and GraphQL APIs.
+        AI and data: AI agents, LLMs, Claude and OpenAI APIs, RAG pipelines, vector databases, TensorFlow, PyTorch, OpenCV, computer vision, Power BI, Pandas.
+        Databases: PostgreSQL, MySQL, MongoDB, Redis, Firebase. Cloud: AWS, Azure, Google Cloud, Docker, Kubernetes, GitHub Actions.
+        IoT: MQTT, ESP32, Raspberry Pi. E-commerce: Shopify, WooCommerce.
+      </p>
     </section>
   );
 }

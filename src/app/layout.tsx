@@ -4,6 +4,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MobileCTA from "@/components/layout/MobileCTA";
 import ClientEffects from "@/components/ui/ClientEffects";
+import TextFold from "@/components/ui/TextFold";
 import { BASE_PATH } from "@/lib/site";
 import "./globals.css";
 
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://sanuxx.github.io/ZYNTRAZ/"),
   title: { default: "Zyntraz — Business transformation, engineered.", template: "%s — Zyntraz" },
   description:
-    "Zyntraz is a business transformation engineering company. We understand how your business works, then build the software, AI, data and automation it needs. Start a transformation assessment.",
+    "Zyntraz is a business transformation engineering company in Sri Lanka. We understand how your business works, then build the software, AI, data and automation it needs. Start a transformation assessment.",
   // The full wordmark is a wide rectangle — squished into a browser tab's square favicon slot it
   // reads as an illegible sliver, so the tab icon uses just the arrow accent cropped from it instead.
   icons: { icon: `${BASE_PATH}/zyntraz-mark.png` },
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = { themeColor: "#000000" };
+export const viewport: Viewport = { themeColor: "#ffffff" };
 
 // Runs before first paint: play the logo intro once per session, never for reduced-motion users.
 const INTRO_SCRIPT = `(function(){var d=document.documentElement;
@@ -43,6 +44,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body>
         <ClientEffects />
+        <TextFold />
         <Header />
         <main>{children}</main>
         <Footer />

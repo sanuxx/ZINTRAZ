@@ -45,21 +45,20 @@ void main(){
   float n2 = fbm(p * 0.8 + n1 * 1.1 + vec2(-t * 0.6, t * 0.5));
   float v = n2 * 0.5 + 0.5;
 
-  vec3 white = vec3(1.0);
-  vec3 ice = vec3(0.90, 0.94, 1.0);
-  vec3 sky = vec3(0.62, 0.78, 1.0);
-  vec3 blue = vec3(0.16, 0.42, 1.0);
-  vec3 cyan = vec3(0.55, 0.88, 1.0);
-  vec3 violet = vec3(0.66, 0.58, 1.0);
+  vec3 cloud = vec3(0.93, 0.96, 1.0);
+  vec3 sky = vec3(0.50, 0.68, 1.0);
+  vec3 blue = vec3(0.07, 0.36, 0.98);
+  vec3 deep = vec3(0.02, 0.19, 0.74);
+  vec3 violet = vec3(0.40, 0.30, 0.95);
 
-  // Lighter near the top where the headline sits, richer toward the bottom.
-  float depth = smoothstep(0.95, 0.05, vUv.y);
-  vec3 col = mix(white, ice, smoothstep(0.25, 0.6, v));
-  col = mix(col, sky, smoothstep(0.5, 0.85, v) * (0.45 + 0.45 * depth));
-  col = mix(col, blue, smoothstep(0.72, 1.0, n1 * 0.5 + 0.5) * 0.55 * depth);
-  col = mix(col, cyan, smoothstep(0.6, 0.95, fbm(p * 1.2 - t)) * 0.25);
-  col = mix(col, mix(sky, violet, 0.7), uHue * 0.35 * smoothstep(0.4, 0.9, v));
-  col = mix(col, sky, exp(-md * md * 9.0) * 0.35);
+  // Saturated blue sky at the top where the white headline sits, drifting clouds toward the bottom.
+  float y = vUv.y + (v - 0.5) * 0.22;
+  vec3 col = mix(cloud, sky, smoothstep(0.02, 0.42, y));
+  col = mix(col, blue, smoothstep(0.32, 0.72, y));
+  col = mix(col, deep, smoothstep(0.68, 1.05, vUv.y + n1 * 0.08));
+  col = mix(col, cloud, smoothstep(0.55, 0.92, fbm(p * 1.1 - t)) * smoothstep(0.55, 0.08, vUv.y) * 0.75);
+  col = mix(col, violet, uHue * 0.3 * smoothstep(0.4, 0.9, v) * smoothstep(0.3, 0.8, vUv.y));
+  col = mix(col, sky, exp(-md * md * 9.0) * 0.25);
   gl_FragColor = vec4(col, 1.0);
 }`;
 

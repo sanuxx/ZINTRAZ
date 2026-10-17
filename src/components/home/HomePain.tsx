@@ -1,77 +1,95 @@
-"use client";
-
-import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { Bot, ChevronRight, FileSpreadsheet, Repeat } from "lucide-react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import SplitText from "gsap/SplitText";
+import { Bot, ChevronRight, ClipboardPaste, Copy, FileSpreadsheet, Keyboard, MessageCircle, Repeat, Send } from "lucide-react";
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
-
-const pains = [
-  { icon: FileSpreadsheet, title: "Running on spreadsheets and WhatsApp.", desc: "Nobody has one version of the truth, so mistakes are guaranteed." },
-  { icon: Repeat, title: "Your team does robot work.", desc: "Hours every week lost to copy-paste, re-typing and chasing approvals." },
-  { icon: Bot, title: "AI that never leaves the demo.", desc: "Chatbots that don't know your business and can't act in your systems." },
-];
-
+// Bento layout: the growth-gap chart carries the headline's idea, and each pain card shows its symptom in a small visual.
 export default function HomePain() {
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const root = ref.current!;
-    const q = gsap.utils.selector(root);
-    const mm = gsap.matchMedia();
-    const splits: SplitText[] = [];
-
-    mm.add("(prefers-reduced-motion: no-preference)", () => {
-      const l1 = SplitText.create(q(".hpk-1")[0], { type: "words,chars" });
-      const l2 = SplitText.create(q(".hpk-2")[0], { type: "words,chars" });
-      splits.push(l1, l2);
-      // Phones wrap the line and set it smaller, so the break is gentler there to stay readable.
-      const k = window.innerWidth < 760 ? 0.4 : 1;
-      const r = (a: number, b: number) => gsap.utils.random(a, b) * k;
-
-      // Both lines rise into place in 3D; then the second one — the systems — starts to break apart.
-      gsap.timeline({ scrollTrigger: { trigger: q(".hpk")[0], start: "top 88%", end: "top 12%", scrub: 1 } })
-        .from(l1.chars, { yPercent: 110, rotationX: -95, opacity: 0, transformOrigin: "50% 100% -20px", duration: 0.5, stagger: 0.015, ease: "power3.out" }, 0)
-        .from(l2.chars, { yPercent: 110, rotationX: -95, opacity: 0, transformOrigin: "50% 100% -20px", duration: 0.5, stagger: 0.015, ease: "power3.out" }, 0.25)
-        .to(l2.chars, {
-          rotationX: () => r(25, 75), rotationZ: () => r(-16, 16), y: () => r(4, 46), z: () => r(-90, 70),
-          transformOrigin: "50% 100%", duration: 0.7, stagger: { each: 0.03, from: "random" }, ease: "power2.in",
-        }, 1.05);
-
-      gsap.from(q(".hpain-item"), {
-        rotationY: -35, rotationX: 12, z: -160, opacity: 0, transformOrigin: "0% 50%", duration: 1.1, stagger: 0.12, ease: "expo.out",
-        scrollTrigger: { trigger: q(".hpain-grid")[0], start: "top 85%", once: true },
-      });
-    });
-
-    return () => { splits.forEach((s) => s.revert()); mm.revert(); };
-  }, []);
-
   return (
-    <section ref={ref} className="section alt hpain">
+    <section className="section alt hpain">
       <div className="container">
         <div className="section-head center">
           <p className="eyebrow pain" data-reveal>Sound familiar?</p>
-          <h2 className="h-xl hpk" aria-label="Your business is growing. Your systems aren't.">
-            <span className="hpk-1" aria-hidden="true">Your business is growing.</span>
-            <span className="hpk-2 dim" aria-hidden="true">Your systems aren&apos;t.</span>
+          <h2 className="h-xl" data-reveal style={{ ["--d" as string]: ".08s" }}>
+            Your business is growing.<br /><span className="dim">Your systems aren&apos;t.</span>
           </h2>
         </div>
-        <div className="hpain-grid">
-          {pains.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="hpain-item">
-              <Icon size={28} />
-              <h3>{title}</h3>
-              <p>{desc}</p>
+
+        <div className="hp-bento">
+          <article className="hp-card hp-chart" data-reveal>
+            <div className="hp-card-head">
+              <span className="hp-tag">The growth gap</span>
+              <h3>Every new customer adds load to systems that never scaled with you.</h3>
             </div>
-          ))}
-        </div>
-        <div className="cta-row center" data-reveal>
-          <Link href="/solutions" className="link-chev">See how we fix it <ChevronRight size={18} /></Link>
-          <Link href="/solutions#calculator" className="link-chev">Calculate your hidden cost <ChevronRight size={18} /></Link>
+            <svg className="hp-graph" viewBox="0 0 600 250" role="img" aria-label="Business growth curve rising steeply while systems capacity stays nearly flat, leaving a widening gap">
+              <defs>
+                <linearGradient id="hpGrow" x1="0" x2="1" y1="0" y2="0">
+                  <stop offset="0" stopColor="var(--blue)" />
+                  <stop offset="1" stopColor="var(--violet)" />
+                </linearGradient>
+                <pattern id="hpHatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                  <line x1="0" y1="0" x2="0" y2="8" stroke="var(--pain)" strokeWidth="2" strokeOpacity=".22" />
+                </pattern>
+              </defs>
+              {[50, 100, 150, 200].map((y) => <line key={y} className="hp-grid" x1="0" x2="600" y1={y} y2={y} />)}
+              <path className="hp-gap" d="M0,228 C150,218 260,170 360,112 S520,34 600,20 L600,200 L390,200 L390,212 L170,212 L170,230 L0,230 Z" fill="url(#hpHatch)" />
+              <path className="hp-line hp-sys" pathLength={1} d="M0,230 L170,230 L170,212 L390,212 L390,200 L600,200" />
+              <path className="hp-line hp-biz" pathLength={1} d="M0,228 C150,218 260,170 360,112 S520,34 600,20" stroke="url(#hpGrow)" />
+              <circle className="hp-dot" cx="600" cy="20" r="6" />
+            </svg>
+            <div className="hp-legend">
+              <span><i className="hp-key biz" />Your business</span>
+              <span><i className="hp-key sys" />Your systems</span>
+              <span className="hp-legend-gap"><i className="hp-key gap" />The gap you pay for</span>
+            </div>
+          </article>
+
+          <article className="hp-card hp-sheets" data-reveal style={{ ["--d" as string]: ".1s" }}>
+            <div className="hp-visual" aria-hidden="true">
+              {[
+                { name: "stock_final.xlsx", val: "412" },
+                { name: "stock_final_v2.xlsx", val: "388" },
+                { name: "stock_REAL_final.xlsx", val: "455" },
+              ].map((f, i) => (
+                <div key={f.name} className="hp-file" style={{ ["--i" as string]: i }}>
+                  <FileSpreadsheet size={16} /><span>{f.name}</span><b>{f.val}</b>
+                </div>
+              ))}
+              <div className="hp-wa"><MessageCircle size={14} /> &ldquo;Which one is right??&rdquo;</div>
+            </div>
+            <h3>Running on spreadsheets and WhatsApp.</h3>
+            <p>Nobody has one version of the truth, so mistakes are guaranteed.</p>
+          </article>
+
+          <article className="hp-card hp-robot" data-reveal style={{ ["--d" as string]: ".05s" }}>
+            <div className="hp-visual" aria-hidden="true">
+              <div className="hp-loop">
+                <span><Copy size={15} />Copy</span>
+                <span><ClipboardPaste size={15} />Paste</span>
+                <span><Keyboard size={15} />Re-type</span>
+                <span><Send size={15} />Chase</span>
+              </div>
+              <div className="hp-repeat"><Repeat size={14} /> Repeat. Every day.</div>
+            </div>
+            <h3>Your team does robot work.</h3>
+            <p>Hours every week lost to copy-paste, re-typing and chasing approvals.</p>
+          </article>
+
+          <article className="hp-card hp-ai" data-reveal style={{ ["--d" as string]: ".12s" }}>
+            <div className="hp-visual" aria-hidden="true">
+              <div className="hp-msg me">What&apos;s our overdue invoice total?</div>
+              <div className="hp-msg bot"><Bot size={15} />Sorry, I don&apos;t have access to your systems.</div>
+            </div>
+            <h3>AI that never leaves the demo.</h3>
+            <p>Chatbots that don&apos;t know your business and can&apos;t act in your systems.</p>
+          </article>
+
+          <article className="hp-card hp-cta" data-reveal style={{ ["--d" as string]: ".19s" }}>
+            <h3>The gap gets wider every month you wait.</h3>
+            <p>We engineer the systems your next stage of growth runs on.</p>
+            <div className="hp-cta-links">
+              <Link href="/transformation" className="link-chev">See how we fix it <ChevronRight size={18} /></Link>
+              <Link href="/transformation#calculator" className="link-chev">Calculate your hidden cost <ChevronRight size={18} /></Link>
+            </div>
+          </article>
         </div>
       </div>
     </section>

@@ -198,9 +198,9 @@ function GenerativeDemo({ c }: { c: string }) {
 const caps = [
   { title: "Agentic workflows", accent: "#0b5cff", Demo: WorkflowDemo, desc: "Multi-step agents that run business processes end to end — across every system you use.", tags: ["Order processing", "Approvals", "Reorders"] },
   { title: "LLM-powered assistants", accent: "#7c3aed", Demo: ChatDemo, desc: "Custom assistants trained on your knowledge base, embedded in your website, app and WhatsApp.", tags: ["Customer support", "Sales", "Internal help"] },
-  { title: "Predictive analytics", accent: "#0891b2", Demo: ForecastDemo, desc: "ML models trained on your data to forecast demand, churn and business outcomes.", tags: ["Demand", "Churn", "Revenue"] },
+  { title: "Business & decision intelligence", accent: "#0891b2", Demo: ForecastDemo, desc: "Dashboards, forecasts and what-if simulations built on your real data — so decisions stop running on gut feel.", tags: ["BI dashboards", "Forecasting", "What-if simulations"] },
   { title: "Computer vision", accent: "#4f46e5", Demo: VisionDemo, desc: "Automated image analysis, quality inspection and visual data extraction at scale.", tags: ["Inspection", "Counting", "OCR"] },
-  { title: "Compliance AI", accent: "#0284c7", Demo: ComplianceDemo, desc: "Automated document review, risk flagging and regulatory compliance monitoring.", tags: ["Contracts", "Policies", "Audits"] },
+  { title: "Document intelligence", accent: "#0284c7", Demo: ComplianceDemo, desc: "AI that reads your contracts, invoices and policies — extracting data, comparing versions and flagging risks.", tags: ["Contracts", "Invoices", "Policies"] },
   { title: "Generative pipelines", accent: "#9333ea", Demo: GenerativeDemo, desc: "Content generation, summarization and data transformation for your whole team.", tags: ["Summaries", "Reports", "Content"] },
 ];
 

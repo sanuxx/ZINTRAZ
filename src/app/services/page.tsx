@@ -1,29 +1,29 @@
 import type { Metadata } from "next";
-import PageHero from "@/components/layout/PageHero";
 import CTABand from "@/components/layout/CTABand";
-import DomainsOrbit from "@/components/sections/DomainsOrbit";
-import Workflow from "@/components/sections/Workflow";
+import ServiceStarts from "@/components/sections/ServiceStarts";
 import TechStack from "@/components/sections/TechStack";
+import ServicesHero from "@/components/services/ServicesHero";
+import ServiceExplorer from "@/components/services/ServiceExplorer";
+import ServiceEngage from "@/components/services/ServiceEngage";
 
 export const metadata: Metadata = {
-  title: "Engineering — software, AI, data, integrations and IoT",
-  description: "AI & agentic AI, software development, web development, web system development and custom system development — engineered end to end.",
+  title: "Services — software, AI, data, IoT and ongoing engineering",
+  description:
+    "Whether you need a new platform, AI capability, connected system or complete digital transformation, Zyntraz brings strategy and engineering together.",
 };
 
 export default function ServicesPage() {
   return (
     <div className="page">
-      <PageHero
-        eyebrow="Engineering"
-        title={<>Engineering,<br /><span className="grad-text">end to end.</span></>}
-        lede={<>We understand how your business works, then engineer <strong>the software, AI, data and automation</strong> it needs — with real progress every week.</>}
-        primary={{ label: "Start a project", href: "/contact" }}
-        secondary={{ label: "See how we work", href: "#process" }}
-      />
-      <DomainsOrbit />
-      <Workflow />
+      {/* Editorial statement, the portfolio in figures, and a contents strip of all seven services. */}
+      <ServicesHero />
+      {/* Each service as a chapter beside a sticky index (anchors: /services#<slug>). */}
+      <ServiceExplorer />
+      {/* Ways in: small first steps, then the three engagement models. */}
+      <ServiceStarts />
+      <ServiceEngage />
       <TechStack />
-      <CTABand />
+      <CTABand variant="build" />
     </div>
   );
 }

@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     q: "How long does it take and what does it cost?",
-    a: "It depends on scope. After a transformation assessment we give you a clear roadmap, timeline and estimate before any commitment. Restaurants and hotels can start on ZynRest or ZynStay and customise from there to go live faster; ZynDesk and ZynCRM are coming soon.",
+    a: "It depends on scope. After a transformation assessment we give you a clear roadmap, timeline and estimate before any commitment. Restaurants can start on ZynRest and customise from there to go live faster; ZynStay and ZynCRM are coming soon.",
   },
   {
     q: "We're not technical. Will our team be able to use it?",
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: "What happens after launch?",
-    a: "We don't disappear. We monitor, support, optimize and keep evolving your system as your business grows. Most of our work is long-term partnership.",
+    a: "We don't disappear. We monitor, support, optimize and keep evolving your system as your business grows. Continuous operations are part of what we offer, not an afterthought.",
   },
 ];
 
@@ -46,7 +46,7 @@ export default function FAQ() {
             Straight answers to what business owners ask us most. Something else on your mind? Just ask.
           </p>
           <div data-reveal style={{ ["--d" as string]: ".3s" }}>
-            <a href="#contact" className="btn btn-ghost">Talk to an architect <ArrowRight size={16} /></a>
+            <a href="#contact" className="btn btn-ghost">Start a transformation assessment <ArrowRight size={16} /></a>
           </div>
         </div>
         <div className="faq-list" data-reveal>

@@ -4,7 +4,7 @@ const industries = [
   {
     name: "Hospitality", icon: Hotel,
     problems: ["Booking fragmentation across channels", "Housekeeping & maintenance chaos", "Restaurant operations disconnected from the front desk", "No live view of revenue"],
-    fit: "ZynStay + ZynRest, connected",
+    fit: "ZynRest today, the ZynStay ecosystem coming soon",
   },
   {
     name: "Retail & E-Commerce", icon: ShoppingBag,
@@ -46,7 +46,7 @@ export default function Industries() {
         </div>
         <div className="ind-grid">
           {industries.map(({ name, icon: Icon, problems, fit }, i) => (
-            <article key={name} className="ind" data-reveal style={{ ["--d" as string]: `${(i % 3) * 0.08}s` }}>
+            <article key={name} className="glass spot ind" data-reveal style={{ ["--d" as string]: `${(i % 3) * 0.08}s` }}>
               <div className="ind-head">
                 <span className="ind-ico"><Icon size={22} /></span>
                 <h3>{name}</h3>

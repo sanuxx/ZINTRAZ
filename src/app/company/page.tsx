@@ -1,29 +1,13 @@
 import type { Metadata } from "next";
-import PageHero from "@/components/layout/PageHero";
-import CTABand from "@/components/layout/CTABand";
-import Positioning from "@/components/sections/Positioning";
-import Stats from "@/components/sections/Stats";
-import SystemMap from "@/components/sections/SystemMap";
+import RouteAlias from "@/components/layout/RouteAlias";
 
+// Renamed to /about when the site adopted the content architecture.
 export const metadata: Metadata = {
-  title: "Company — we rebuild how businesses operate",
-  description: "Not generic software. Zyntraz engineers AI and business systems around how your business actually works.",
+  title: "About Zyntraz",
+  alternates: { canonical: "/about" },
+  robots: { index: false, follow: true },
 };
 
-export default function CompanyPage() {
-  return (
-    <div className="page">
-      <PageHero
-        eyebrow="About Zyntraz"
-        title={<>We rebuild how<br /><span className="grad-text">businesses operate.</span></>}
-        lede={<>Zyntraz is a business transformation engineering company. We understand how your business works, then build the <strong>software, AI, data and automation</strong> it needs — for companies ready to stop patching the chaos.</>}
-        primary={{ label: "Work with us", href: "/contact" }}
-        secondary={{ label: "Explore Zyntraz AI", href: "/ai" }}
-      />
-      <SystemMap />
-      <Positioning />
-      <Stats />
-      <CTABand />
-    </div>
-  );
+export default function CompanyAliasPage() {
+  return <RouteAlias to="/about" label="About ZYNTRAZ" />;
 }

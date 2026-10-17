@@ -1,21 +1,21 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Search, Layers, PenTool, Terminal, CheckCircle, Shield, Rocket, Activity } from "lucide-react";
+import { MessagesSquare, Search, Compass, Layers, Terminal, Rocket, Activity } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// The phase tag groups each phase under the four-step model shown on the homepage.
 const steps = [
-  { group: "Understand", title: "Discovery & Strategy", desc: "Deep discovery into your operational problems, business goals and constraints — before writing a single line of code.", icon: Search },
-  { group: "Design", title: "Architecture & Planning", desc: "Designing the data model, choosing the right technology and planning every integration your operation depends on.", icon: Layers },
-  { group: "Design", title: "Experience design", desc: "Prototypes your team can click through, shaped around the people who will use the system every day.", icon: PenTool },
-  { group: "Engineer", title: "Build", desc: "Focused sprints with weekly demos. Clean, modular code — no black-box development.", icon: Terminal },
-  { group: "Engineer", title: "Quality assurance", desc: "Automated tests, stress testing and edge cases resolved before anything reaches your team.", icon: CheckCircle },
-  { group: "Engineer", title: "Security", desc: "Penetration testing, encryption checks and compliance reviews to keep your business data safe.", icon: Shield },
-  { group: "Transform", title: "Launch", desc: "A zero-downtime launch, monitoring from day one and training for your team.", icon: Rocket },
-  { group: "Transform", title: "Continuous evolution", desc: "Monitoring, optimisation and new features as your business grows. A long-term partnership, not a hand-off.", icon: Activity },
+  { title: "Consultation", stage: "Understand", desc: "A free, no-commitment conversation about your business, your goals and what's slowing you down.", icon: MessagesSquare },
+  { title: "Business Analysis", stage: "Understand", desc: "We map your processes, roles, bottlenecks and information flows — how the business really runs today.", icon: Search },
+  { title: "Strategy", stage: "Design", desc: "We decide what to change, what to build and what to automate — and where AI will actually pay off.", icon: Compass },
+  { title: "System Design", stage: "Design", desc: "Architecture, data model and user experience designed together, with a prototype on your real workflows.", icon: Layers },
+  { title: "Build", stage: "Engineer", desc: "Focused sprints with weekly demos and testing throughout — you see real progress, with no surprises.", icon: Terminal },
+  { title: "Deployment", stage: "Engineer", desc: "We launch, migrate your data, connect your existing tools and train your team.", icon: Rocket },
+  { title: "Ongoing Support", stage: "Transform", desc: "Support, monitoring, optimisation and new modules as your business grows. We don't disappear after launch.", icon: Activity },
 ];
 
 export default function Workflow() {
@@ -46,22 +46,22 @@ export default function Workflow() {
         <div className="container">
           <div className="section-head" style={{ marginBottom: 48 }}>
             <span className="eyebrow" data-reveal>How we work</span>
-            <h2 className="h-lg" data-reveal style={{ ["--d" as string]: ".1s" }}>Understand, design, engineer, <span className="grad-text">transform.</span></h2>
+            <h2 className="h-lg" data-reveal style={{ ["--d" as string]: ".1s" }}>From first conversation <span className="grad-text">to continuous support.</span></h2>
             <p className="lede" data-reveal style={{ ["--d" as string]: ".2s" }}>
-              Eight phases, from the first conversation to continuous improvement — with real progress every week and no surprises.
+              Understand, design, engineer, transform — seven phases, with real progress every week and no surprises.
             </p>
           </div>
         </div>
         <div className="process-track">
-          {steps.map(({ group, title, desc, icon: Icon }, i) => (
-            <article key={title} className="phase">
-              <span className="phase-tag">{group}</span>
+          {steps.map(({ title, stage, desc, icon: Icon }, i) => (
+            <article key={title} className="glass spot phase">
               <div className="phase-top">
                 <span className="phase-num">{String(i + 1).padStart(2, "0")}</span>
                 <span className="phase-ico"><Icon size={22} /></span>
               </div>
               <h3>{title}</h3>
               <p>{desc}</p>
+              <span className="phase-tag">{stage}</span>
             </article>
           ))}
         </div>

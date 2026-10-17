@@ -1,15 +1,42 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowRight, Check, Mail, MessageCircle, Phone, Send } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { EMAIL, PHONE_DISPLAY, PHONE_TEL, WHATSAPP } from "@/lib/contact";
 
-const needs = ["AI agents", "AI integration", "Software development", "Website", "Web system", "Custom system", "ZynRest", "ZynStay", "ZynDesk", "ZynCRM", "Not sure yet"];
+const needs = [
+  "Business analysis & strategy", "Website or e-commerce", "Custom software / business system", "AI agents & automation",
+  "Data, BI & analytics", "IoT & connected systems", "Support & continuous improvement", "ZynRest",
+  "ZynStay (early access)", "ZynEvents (early access)",
+  "ZynCRM (early access)", "ZynIQ (early access)", "AI products (early access)", "Not sure yet",
+];
+
+const industryOptions = [
+  "Hospitality", "Healthcare", "Education", "Retail & E-Commerce",
+  "Corporate & Professional Services", "Real Estate", "Logistics", "Other",
+];
+
+const timelineOptions = ["As soon as possible", "Within 1–3 months", "Within 3–6 months", "6+ months", "Just exploring"];
+
+const budgetOptions = ["Under $5k", "$5k – $15k", "$15k – $50k", "$50k+", "Need guidance on budget"];
+
+type Blueprint = { business: string; industry: string; modules: string };
 
 export default function Contact() {
   const [picked, setPicked] = useState<string[]>([]);
   const [sent, setSent] = useState(false);
+  // Arriving from the home page's "Send us this blueprint": pre-fill the form with what they designed.
+  const [blueprint, setBlueprint] = useState<Blueprint | null>(null);
+
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search);
+    const business = p.get("blueprint"), modules = p.get("modules");
+    if (!business || !modules) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- the query string only exists on the client
+    setBlueprint({ business, industry: industryOptions.includes(p.get("industry") ?? "") ? p.get("industry")! : "", modules });
+    setPicked((x) => (x.includes("Custom software / business system") ? x : [...x, "Custom software / business system"]));
+  }, []);
 
   const toggle = (n: string) => setPicked((p) => (p.includes(n) ? p.filter((x) => x !== n) : [...p, n]));
 
@@ -20,7 +47,11 @@ export default function Contact() {
       `Name: ${f.get("name")}`,
       `Company: ${f.get("company") || "-"}`,
       `Email: ${f.get("email")}`,
+      `Phone: ${f.get("phone") || "-"}`,
+      `Industry: ${f.get("industry") || "-"}`,
       `Interested in: ${picked.join(", ") || "-"}`,
+      `Estimated timeline: ${f.get("timeline") || "-"}`,
+      `Budget range: ${f.get("budget") || "-"}`,
       "",
       String(f.get("message")),
     ].join("\n");
@@ -52,7 +83,7 @@ export default function Contact() {
         <div className="glass contact-card" data-reveal>
           <div>
             <span className="eyebrow">Your transformation assessment</span>
-            <h3 className="h-md" style={{ marginTop: 18, fontSize: "clamp(26px, 2.6vw, 36px)" }}>What you get — before you spend a cent.</h3>
+            <h3 className="h-md" style={{ marginTop: 18, fontSize: "clamp(26px, 2.6vw, 36px)" }}>What you get — before you pay anything.</h3>
             <ul className="audit-list">
               <li><Check size={18} /> A walkthrough of your current operations and where time and money leak out</li>
               <li><Check size={18} /> Honest advice on what to automate — and where AI agents will pay off first</li>
@@ -87,12 +118,24 @@ export default function Contact() {
                 <button className="btn btn-ghost" onClick={() => setSent(false)}>Edit message</button>
               </div>
             ) : (
-              <form className="form" onSubmit={onSubmit}>
+              <form key={blueprint ? "blueprint" : "blank"} className="form" onSubmit={onSubmit}>
+                {blueprint && (
+                  <p className="form-blueprint"><Check size={16} /> Your {blueprint.business.toLowerCase()} blueprint is attached: {blueprint.modules}.</p>
+                )}
                 <div className="form-row">
                   <label>Full name<input name="name" required autoComplete="name" placeholder="Your name" /></label>
                   <label>Company<input name="company" autoComplete="organization" placeholder="Business name" /></label>
                 </div>
-                <label>Email address<input name="email" type="email" required autoComplete="email" placeholder="you@company.com" /></label>
+                <div className="form-row">
+                  <label>Email address<input name="email" type="email" required autoComplete="email" placeholder="you@company.com" /></label>
+                  <label>Phone<input name="phone" type="tel" autoComplete="tel" placeholder="+94 ..." /></label>
+                </div>
+                <label>Industry
+                  <select name="industry" defaultValue={blueprint?.industry ?? ""}>
+                    <option value="">Select your industry</option>
+                    {industryOptions.map((o) => <option key={o} value={o}>{o}</option>)}
+                  </select>
+                </label>
                 <div style={{ display: "grid", gap: 10 }}>
                   <span style={{ fontSize: 13, color: "var(--muted)" }}>What are you interested in?</span>
                   <div className="chips">
@@ -101,9 +144,25 @@ export default function Contact() {
                     ))}
                   </div>
                 </div>
-                <label>What&apos;s slowing your business down?
-                  <textarea name="message" required rows={4} placeholder="e.g. We manage stock in spreadsheets and orders over WhatsApp…" />
+                <label>Tell us about your challenge
+                  <textarea name="message" required rows={4} defaultValue={blueprint ? `I'd like a system for my ${blueprint.business.toLowerCase()} covering: ${blueprint.modules}.
+
+Right now we…` : undefined} placeholder="e.g. We manage stock in spreadsheets and orders over WhatsApp…" />
                 </label>
+                <div className="form-row">
+                  <label>Estimated timeline
+                    <select name="timeline" defaultValue="">
+                      <option value="">No fixed timeline</option>
+                      {timelineOptions.map((o) => <option key={o} value={o}>{o}</option>)}
+                    </select>
+                  </label>
+                  <label>Budget range
+                    <select name="budget" defaultValue="">
+                      <option value="">Not decided yet</option>
+                      {budgetOptions.map((o) => <option key={o} value={o}>{o}</option>)}
+                    </select>
+                  </label>
+                </div>
                 <button type="submit" className="btn btn-primary btn-lg">Request my transformation assessment <Send size={16} /></button>
                 <p className="form-note">No spam, no obligation.</p>
               </form>

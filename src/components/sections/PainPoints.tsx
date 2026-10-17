@@ -105,7 +105,7 @@ export default function PainPoints() {
 
         <div className="pain-grid">
           {pains.map(({ icon: Icon, title, desc, quote, wide }, i) => (
-            <article key={title} className={`pain-card${wide ? " wide" : ""}`} data-reveal style={{ ["--d" as string]: `${(i % 3) * 0.08}s` }}>
+            <article key={title} className={`glass spot pain-card${wide ? " wide" : ""}`} data-reveal style={{ ["--d" as string]: `${(i % 3) * 0.08}s` }}>
               <span className="pain-ico"><Icon size={20} /></span>
               <h3>{title}</h3>
               <p>{desc}</p>

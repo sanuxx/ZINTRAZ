@@ -4,10 +4,10 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 const stats = [
-  { target: 10, suffix: "+", label: "Systems engineered" },
-  { target: 5, suffix: "+", label: "Industries supported" },
-  { target: 2, suffix: "", label: "Platforms live today" },
-  { target: 100, suffix: "%", label: "Human-in-the-loop on every agent" },
+  { target: 5, suffix: "", label: "Disciplines under one roof" },
+  { target: 6, suffix: "", label: "Industries we engineer for" },
+  { target: 9, suffix: "", label: "Products on one shared core" },
+  { target: 100, suffix: "%", label: "Human approval on high-stakes AI actions" },
 ];
 
 export default function Stats() {

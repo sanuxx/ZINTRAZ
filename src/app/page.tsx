@@ -1,28 +1,34 @@
-import HeroGenesis from "@/components/home/HeroGenesis";
-import Worlds from "@/components/home/Worlds";
+import HeroCinematic from "@/components/home/HeroCinematic";
+import Journey from "@/components/home/Journey";
 import HomePain from "@/components/home/HomePain";
+import HomeOverview from "@/components/home/HomeOverview";
 import HomeProcess from "@/components/home/HomeProcess";
-import HomePlatforms from "@/components/home/HomePlatforms";
-import BusinessSystemScene from "@/components/home/BusinessSystemScene";
+import WorkforceScene from "@/components/home/WorkforceScene";
+import BusinessBlueprint from "@/components/home/BusinessBlueprint";
 import HomeIndustries from "@/components/home/HomeIndustries";
-import Stats from "@/components/sections/Stats";
-import WhyZyntraz from "@/components/sections/WhyZyntraz";
-import HomeFinale from "@/components/home/HomeFinale";
+import Stats from "@/components/sections/Stats";import WhyZyntraz from "@/components/sections/WhyZyntraz";
+import CTABand from "@/components/layout/CTABand";
 
-// Worlds → Pain stay adjacent: the .wd + .hpain curtain slides one over the other.
+// Hero → Journey → Pain are choreographed together (orb handover, then the .jr + .hpain curtain), so they stay adjacent.
+// The narrative then follows the content architecture: problem → what we do → capabilities →
+// industries → process → why us → act.
 export default function Home() {
   return (
     <>
-      <HeroGenesis />
-      <Worlds />
+      <HeroCinematic />
+      <Journey />
       <HomePain />
-      <HomeProcess />
-      <HomePlatforms />
-      <section className="tiles" aria-label="Custom business systems"><BusinessSystemScene /></section>
+      <HomeOverview />
+      <section className="tiles" aria-label="Zyntraz AI"><WorkforceScene /></section>
+      <section className="tiles" aria-label="Custom business systems"><BusinessBlueprint /></section>
       <HomeIndustries />
+      <HomeProcess />
       <Stats />
       <WhyZyntraz />
-      <HomeFinale />
+      <CTABand
+        title={<>Your next stage of growth <span className="grad-text">needs more than software.</span></>}
+        lede="Tell us where your business is today, where you want to go, and what's standing in the way. We'll help you identify what should change — and engineer the systems to make it happen."
+      />
     </>
   );
 }

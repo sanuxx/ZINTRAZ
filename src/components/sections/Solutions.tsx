@@ -77,11 +77,11 @@ export default function Solutions() {
           </p>
         </div>
 
-        <div className="sol-list">
+        <div className="sol-list" data-keep>
           {rows.map((r, i) => (
             <div key={r.fix} className="sol-row">
               <span className="sol-num">{String(i + 1).padStart(2, "0")}</span>
-              <p className="sol-pain">{r.pain}</p>
+              <p className="sol-pain"><span>{r.pain}</span></p>
               <span className="sol-arrow" aria-hidden="true"><ArrowRight size={20} /></span>
               <div className="sol-fix">
                 <h3>{r.fix}</h3>
