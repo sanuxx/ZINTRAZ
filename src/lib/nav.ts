@@ -1,5 +1,5 @@
-// The single source of truth for site structure: drives the header mega-menus, the mobile
-// accordion, the footer columns and sitemap.ts. Add a route here and it appears in all four.
+// The single source of truth for site structure: drives the header (top-level items only), the
+// footer columns and sitemap.ts. The groups feed the sitemap so every sub-page is still indexed.
 //
 // `phase: 2` marks routes from the content architecture that are planned but not written yet.
 // They stay in this tree so the whole structure is reviewable in one place, and are filtered out of

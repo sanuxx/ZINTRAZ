@@ -11,7 +11,10 @@ import { SCENES } from "./OperationScenes";
  * Left of the handle: that industry's desk today, one artifact per problem. Right of the handle: the same
  * four spots inside its ZYNTRAZ screen, each carrying its outcome. Drag anywhere, use the arrow keys on
  * the handle, or the Today / With ZYNTRAZ switch. The first time it is in view it sweeps once as a hint.
+ * On phones a half-and-half split is too narrow to read, so it becomes a flip: it starts on today, flips to
+ * ZYNTRAZ once as the hint, and a tap anywhere (or the switch) flips between the two full views.
  */
+const narrow = () => window.matchMedia("(max-width: 560px)").matches;
 export default function OperationSlider({ ind }: { ind: Industry }) {
   const [pos, setPos] = useState(64);
   const [anim, setAnim] = useState(false);
@@ -28,13 +31,15 @@ export default function OperationSlider({ ind }: { ind: Industry }) {
   useEffect(() => {
     const el = stage.current;
     if (!el) return;
+    const snap = requestAnimationFrame(() => { if (narrow()) setPos(100); });
     const io = new IntersectionObserver(([e]) => {
       if (!e.isIntersecting) return;
       io.disconnect();
-      timers.current.push(window.setTimeout(() => glide(14), 500), window.setTimeout(() => glide(50), 1700));
+      if (narrow()) timers.current.push(window.setTimeout(() => glide(0), 1200));
+      else timers.current.push(window.setTimeout(() => glide(14), 500), window.setTimeout(() => glide(50), 1700));
     }, { threshold: 0.55 });
     io.observe(el);
-    return () => { io.disconnect(); clear(); };
+    return () => { cancelAnimationFrame(snap); io.disconnect(); clear(); };
   }, []);
 
   const at = (x: number) => {
@@ -42,7 +47,9 @@ export default function OperationSlider({ ind }: { ind: Industry }) {
     setPos(Math.min(100, Math.max(0, ((x - b.left) / b.width) * 100)));
   };
   const down = (e: React.PointerEvent) => {
-    clear(); setAnim(false); drag.current = true;
+    clear();
+    if (narrow()) return glide(pos > 50 ? 0 : 100);
+    setAnim(false); drag.current = true;
     stage.current!.setPointerCapture(e.pointerId);
     at(e.clientX);
   };
@@ -58,7 +65,8 @@ export default function OperationSlider({ ind }: { ind: Industry }) {
       <div className="ixp-board-head">
         <div className="ixp-board-title">
           <b>Flip the operation</b>
-          <span>Drag the handle to compare today with the system we engineer.</span>
+          <span className="ops-hint-wide">Drag the handle to compare today with the system we engineer.</span>
+          <span className="ops-hint-narrow">Tap to flip between today and the system we engineer.</span>
         </div>
         <div className="ixp-switch" role="group" aria-label="Show">
           <button type="button" aria-pressed={pos > 50} className={pos > 50 ? "is-on" : undefined} onClick={() => { clear(); glide(100); }}>Today</button>

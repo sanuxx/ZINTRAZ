@@ -142,7 +142,6 @@ export default function SolutionsReel() {
               <span className="ail-panel-ico"><s.Icon size={22} /></span>
               <h3>{s.title}</h3>
               <p className="ail-panel-tag">{s.tagline}</p>
-              <p className="ail-panel-desc">{s.desc}</p>
               <ul>{s.points.map((p) => <li key={p}><Check size={14} />{p}</li>)}</ul>
             </div>
             <div className="ail-panel-vis"><Visual vis={s.vis} /></div>

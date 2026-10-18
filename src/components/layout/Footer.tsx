@@ -1,11 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MessageCircle } from "lucide-react";
-import { EMAIL, PHONE_DISPLAY, PHONE_TEL, WHATSAPP } from "@/lib/contact";
+import { WHATSAPP } from "@/lib/contact";
 import { BASE_PATH } from "@/lib/site";
 import MotionToggle from "@/components/ui/MotionToggle";
-
-import { footerColumns } from "@/lib/nav";
+import FooterColumns from "@/components/layout/FooterColumns";
 
 export default function Footer() {
   return (
@@ -20,24 +19,7 @@ export default function Footer() {
             Free consultation, no commitment. <Link href="/contact">Start a transformation assessment</Link> or chat with us on{" "}
             <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">WhatsApp</a>.
           </p>
-          <div className="gfoot-cols">
-            {footerColumns.map((c) => (
-              <div key={c.title}>
-                <h4>{c.title}</h4>
-                <ul>
-                  {c.links.map((l) => <li key={l.href + l.label}><Link href={l.href}>{l.label}</Link></li>)}
-                  {/* The direct lines belong with the Contact links rather than in a column of their own. */}
-                  {c.title === "Contact" && (
-                    <>
-                      <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
-                      <li><a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a></li>
-                      <li><a href={WHATSAPP} target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-                    </>
-                  )}
-                </ul>
-              </div>
-            ))}
-          </div>
+          <FooterColumns />
           <div className="gfoot-bottom">
             <Image src={`${BASE_PATH}/zyntraz-logo.png`} alt="Zyntraz" width={894} height={174} className="gfoot-logo" />
             <span>Copyright © {new Date().getFullYear()} Zyntraz · Sri Lanka. Innovate • Dominate • Elevate.</span>

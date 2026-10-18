@@ -4,84 +4,79 @@ import {
   Wallet, Wand2, type LucideIcon,
 } from "lucide-react";
 
-/** /ai page content, from the client's AI page brief. Shared by the server page and its client scenes. */
+/**
+ * /ai page content, condensed from the client's AI page brief so the page scans rather than reads.
+ * Shared by the server page and its client scenes.
+ */
 
 export const opportunity: { Icon: LucideIcon; title: string; desc: string }[] = [
-  { Icon: Repeat, title: "Reduce repetitive work", desc: "Automate time-consuming tasks and streamline operational workflows." },
-  { Icon: Lightbulb, title: "Make smarter decisions", desc: "Turn business data into insights, forecasts, and actionable recommendations." },
-  { Icon: Sparkles, title: "Build intelligent experiences", desc: "Create applications that understand context and help users get more done." },
-  { Icon: TrendingUp, title: "Scale with confidence", desc: "Build adaptable AI capabilities around your business goals and evolving needs." },
+  { Icon: Repeat, title: "Less repetitive work", desc: "Automate the tasks that eat your week." },
+  { Icon: Lightbulb, title: "Smarter decisions", desc: "Turn data into clear next steps." },
+  { Icon: Sparkles, title: "Intelligent experiences", desc: "Apps that understand what people need." },
+  { Icon: TrendingUp, title: "Room to scale", desc: "AI that grows with the business." },
 ];
 
 export type Solution = {
-  title: string; short: string; tagline: string; desc: string; points: string[]; Icon: LucideIcon;
+  title: string; short: string; tagline: string; points: string[]; Icon: LucideIcon;
   vis: "integrate" | "agents" | "app" | "analytics" | "docs" | "strategy";
 };
 export const solutions: Solution[] = [
-  { title: "AI Integration & Enhancement", short: "AI integration", tagline: "Make your existing systems smarter.", Icon: Plug, vis: "integrate",
-    desc: "Integrate AI capabilities into existing business applications, websites, platforms, and workflows without unnecessarily replacing the systems your business already depends on.",
-    points: ["AI integration with existing software and business tools", "Intelligent features for web applications and platforms", "AI-powered search, recommendations, and assistance", "Context-aware business information retrieval", "AI-enabled customer and employee experiences"] },
-  { title: "AI Agents & Workflow Automation", short: "Agents & automation", tagline: "Move from manual processes to intelligent execution.", Icon: Bot, vis: "agents",
-    desc: "Design AI-powered agents and automated workflows that can interpret information, coordinate tasks, use approved tools, and support business processes under defined permissions and oversight.",
-    points: ["AI agents for business operations", "Multi-agent workflow orchestration", "Document processing and information extraction", "Automated reporting and task coordination", "Human approval workflows and exception handling"] },
-  { title: "Custom AI Application Development", short: "Custom AI apps", tagline: "Build AI around your unique business needs.", Icon: Wand2, vis: "app",
-    desc: "Develop purpose-built AI applications that solve specific business challenges, from intelligent internal assistants to specialized platforms designed around your organization's workflows.",
-    points: ["Custom AI-powered web applications", "Intelligent virtual assistants and chat interfaces", "Knowledge assistants for internal documents", "Retrieval-augmented generation (RAG) solutions", "AI-enabled business and industry-specific platforms"] },
-  { title: "AI Analytics & Decision Intelligence", short: "Analytics & decisions", tagline: "Transform business data into better decisions.", Icon: BarChart3, vis: "analytics",
-    desc: "Connect your business information with analytical and AI capabilities to help teams understand performance, identify patterns, investigate problems, and explore potential outcomes.",
-    points: ["AI-powered business intelligence", "Natural-language questions over business data", "KPI analysis and performance insights", "Trend identification and anomaly detection", "Forecasting, scenario analysis, and decision support", "Automated analytical reports and visualizations"] },
-  { title: "Intelligent Document & Knowledge Systems", short: "Documents & knowledge", tagline: "Make organizational knowledge easier to access and use.", Icon: FileSearch, vis: "docs",
-    desc: "Help teams search, understand, summarize, and analyze business documents through AI systems grounded in authorized organizational information.",
-    points: ["Document search and conversational Q&A", "PDF, Word, Excel, and structured-data analysis", "Source references and evidence-backed responses", "Cross-document comparison and summarization", "Internal knowledge assistants and document workflows"] },
-  { title: "AI Strategy & Implementation Consulting", short: "Strategy & consulting", tagline: "Start with the right problem, not just the latest technology.", Icon: Compass, vis: "strategy",
-    desc: "Identify where AI can create meaningful value, assess readiness, prioritize use cases, and establish a practical implementation roadmap before investing in complex solutions.",
-    points: ["AI opportunity and readiness assessments", "Business process and use-case analysis", "Technology and model selection", "Proof-of-concept development", "Implementation roadmaps and success metrics", "Responsible AI practices and governance planning"] },
+  { title: "AI Integration & Enhancement", short: "AI integration", tagline: "Make the systems you already have smarter.", Icon: Plug, vis: "integrate",
+    points: ["AI inside your existing software", "Smart search and recommendations", "Assistants for customers and staff"] },
+  { title: "AI Agents & Workflow Automation", short: "Agents & automation", tagline: "Agents that do the work, with you in control.", Icon: Bot, vis: "agents",
+    points: ["Agents for everyday operations", "Document processing and reporting", "Human approval where it matters"] },
+  { title: "Custom AI Application Development", short: "Custom AI apps", tagline: "AI built around how your business works.", Icon: Wand2, vis: "app",
+    points: ["AI-powered web applications", "Chat assistants and virtual agents", "Knowledge assistants over your documents"] },
+  { title: "AI Analytics & Decision Intelligence", short: "Analytics & decisions", tagline: "Ask your data questions in plain language.", Icon: BarChart3, vis: "analytics",
+    points: ["KPIs, trends and anomalies", "Forecasts and what-if scenarios", "Automated reports"] },
+  { title: "Intelligent Document & Knowledge Systems", short: "Documents & knowledge", tagline: "Find any answer in your documents, with sources.", Icon: FileSearch, vis: "docs",
+    points: ["Search and Q&A over PDFs, Word and Excel", "Summaries and comparisons", "Answers that cite their sources"] },
+  { title: "AI Strategy & Implementation Consulting", short: "Strategy & consulting", tagline: "Start with the right problem, not the latest tool.", Icon: Compass, vis: "strategy",
+    points: ["Readiness and opportunity assessments", "Proofs of concept", "A practical roadmap"] },
 ];
 
 export const functions: { Icon: LucideIcon; title: string; uses: string[] }[] = [
-  { Icon: Wallet, title: "Finance & Operations", uses: ["Financial document analysis", "Expense categorization", "Budget-versus-actual insights", "Management reporting", "Workflow automation"] },
-  { Icon: MessageCircle, title: "Sales & Customer Experience", uses: ["Lead qualification support", "Customer inquiry assistants", "Conversation summaries", "Sales insights", "Personalized customer journeys"] },
-  { Icon: Megaphone, title: "Marketing & Growth", uses: ["Campaign analysis", "Audience insights", "Content workflows", "Marketing performance reports", "Data-informed strategy"] },
-  { Icon: Users, title: "Human Resources", uses: ["HR policy assistants", "Employee self-service", "Document processing", "Recruitment workflow support", "Workforce reporting"] },
-  { Icon: Briefcase, title: "Projects & Management", uses: ["Project status summaries", "Schedule-risk signals", "Progress reporting", "Resource insights", "Decision support"] },
-  { Icon: Building2, title: "Industry & Enterprise Systems", uses: ["Industry-specific assistants", "Operational intelligence", "Knowledge systems", "AI-enhanced applications"] },
+  { Icon: Wallet, title: "Finance & Operations", uses: ["Document analysis", "Expense sorting", "Management reports"] },
+  { Icon: MessageCircle, title: "Sales & Customers", uses: ["Lead qualification", "Customer assistants", "Sales insights"] },
+  { Icon: Megaphone, title: "Marketing & Growth", uses: ["Campaign analysis", "Audience insights", "Content workflows"] },
+  { Icon: Users, title: "Human Resources", uses: ["Policy assistants", "Employee self-service", "Recruitment support"] },
+  { Icon: Briefcase, title: "Projects & Management", uses: ["Status summaries", "Schedule risks", "Decision support"] },
+  { Icon: Building2, title: "Industry Systems", uses: ["Industry assistants", "Operational intelligence", "Knowledge systems"] },
 ];
 
 export const steps: { title: string; desc: string }[] = [
-  { title: "Discover & Understand", desc: "We examine your business objectives, existing processes, challenges, data sources, and operational environment." },
-  { title: "Identify & Strategize", desc: "We evaluate potential AI use cases, feasibility, risks, expected value, and the best-fit implementation approach." },
-  { title: "Design & Engineer", desc: "We design the solution architecture, data workflows, integrations, user experience, and AI components." },
-  { title: "Build & Validate", desc: "We develop and test the solution against defined requirements, real-world scenarios, performance expectations, and relevant security controls." },
-  { title: "Deploy & Integrate", desc: "We implement the solution within your operational environment, with appropriate access controls, monitoring, and user guidance." },
-  { title: "Optimize & Evolve", desc: "We evaluate performance, gather feedback, improve workflows, and identify opportunities for further business value." },
+  { title: "Discover & Understand", desc: "Your goals, processes, data and challenges." },
+  { title: "Identify & Strategize", desc: "The use cases worth doing, and how." },
+  { title: "Design & Engineer", desc: "Architecture, integrations and experience." },
+  { title: "Build & Validate", desc: "Tested against real scenarios and security needs." },
+  { title: "Deploy & Integrate", desc: "Live in your systems, with access controls and monitoring." },
+  { title: "Optimize & Evolve", desc: "Measured, improved and extended over time." },
 ];
 
 export const why: { Icon: LucideIcon; title: string; desc: string }[] = [
-  { Icon: Target, title: "Business-first thinking", desc: "We prioritize actual business challenges and measurable objectives over technology for its own sake." },
-  { Icon: Layers3, title: "End-to-end engineering", desc: "We combine AI, software, integrations, and data workflows into practical solutions." },
-  { Icon: HeartHandshake, title: "Tailored to your operations", desc: "Solutions are designed around your workflows, constraints, users, and organizational goals." },
-  { Icon: Scale, title: "Responsible implementation", desc: "We consider data protection, access permissions, validation, human oversight, and operational reliability." },
-  { Icon: Blocks, title: "Built to integrate", desc: "We consider existing systems and data environments to reduce unnecessary disruption." },
-  { Icon: Rocket, title: "Designed to evolve", desc: "Our approach supports iterative improvement as your requirements and business grow." },
+  { Icon: Target, title: "Business first", desc: "Real problems and measurable results." },
+  { Icon: Layers3, title: "End-to-end engineering", desc: "AI, software, data and integrations in one team." },
+  { Icon: HeartHandshake, title: "Tailored to you", desc: "Built around your workflows and goals." },
+  { Icon: Scale, title: "Responsible by design", desc: "Privacy, permissions and human oversight." },
+  { Icon: Blocks, title: "Built to integrate", desc: "Works with the systems you already run." },
+  { Icon: Rocket, title: "Designed to evolve", desc: "Improves as your business grows." },
 ];
 
 export const trust: { Icon: LucideIcon; title: string; desc: string }[] = [
-  { Icon: LockKeyhole, title: "Data protection", desc: "Design appropriate safeguards for sensitive business information." },
-  { Icon: KeyRound, title: "Access control", desc: "Restrict information and actions according to user permissions." },
-  { Icon: FileCheck2, title: "Grounded responses", desc: "Where applicable, connect AI answers to authorized source documents and supporting evidence." },
-  { Icon: Eye, title: "Human oversight", desc: "Keep people involved in consequential decisions and actions where required." },
-  { Icon: Gauge, title: "Reliability and evaluation", desc: "Test output quality, monitor limitations, and define suitable validation procedures." },
-  { Icon: ServerCog, title: "Deployment flexibility", desc: "Evaluate cloud, private, and local deployment options where technically and commercially appropriate." },
+  { Icon: LockKeyhole, title: "Data protection", desc: "Safeguards for sensitive information." },
+  { Icon: KeyRound, title: "Access control", desc: "People only see what they're allowed to." },
+  { Icon: FileCheck2, title: "Grounded answers", desc: "Responses linked to your source documents." },
+  { Icon: Eye, title: "Human oversight", desc: "People approve the decisions that matter." },
+  { Icon: Gauge, title: "Tested and monitored", desc: "Output quality checked before and after launch." },
+  { Icon: ServerCog, title: "Flexible deployment", desc: "Cloud, private or on-premise." },
 ];
 
 export const faqs: [string, string][] = [
-  ["What types of AI solutions does Zyntraz develop?", "Zyntraz works across AI integration, custom AI applications, AI agents, workflow automation, business intelligence, document intelligence, and AI strategy. The right solution depends on your business goals and technical environment."],
-  ["Can you integrate AI into our existing software?", "In many cases, yes. We review how your current systems store and share information — through APIs, databases or exports — and where AI would add value, then integrate it without replacing what already works. Where a system can't be connected directly, we recommend the most practical alternative."],
-  ["Can AI analyze our internal business documents?", "Yes. We build document and knowledge systems that can search, summarize, compare and answer questions over your authorized documents — including PDF, Word, Excel and structured data — with references to the sources used. Access follows the permissions you define."],
-  ["Do we need to train our own AI model?", "Usually not. Most business solutions combine established AI models with your own information through retrieval, integration and workflow design. Training or fine-tuning a model is considered only where it offers clear value, and we explain the trade-offs before recommending it."],
-  ["Can AI solutions run in a private or local environment?", "It depends on your requirements. We evaluate cloud, private and local deployment options against your data sensitivity, regulatory obligations, performance needs and budget, and recommend the architecture that fits."],
-  ["How long does an AI project take?", "It depends on the scope. A focused proof of concept is much shorter than a production system with several integrations. After an initial assessment of your requirements, we provide a timeline for your specific project."],
-  ["How much does AI development cost?", "Cost depends on the solution's scope, integrations, data preparation, deployment environment and ongoing support. We usually recommend starting with an assessment or proof of concept, after which we provide a clear estimate."],
+  ["What AI solutions do you build?", "Integrations, custom AI apps, agents and automation, analytics, document intelligence and AI strategy. The right one depends on your goals."],
+  ["Can you add AI to our existing software?", "Usually, yes. We connect to your current systems through their APIs, databases or exports, so you don't have to replace what already works."],
+  ["Do we need to train our own model?", "Usually not. Most solutions combine proven AI models with your own data. We only suggest training when it clearly pays off."],
+  ["Can it run privately or on our own servers?", "Yes, where it fits. We compare cloud, private and on-premise options against your data, rules and budget."],
+  ["How long and how much?", "It depends on scope. We usually start with a short assessment or proof of concept, then give you a clear timeline and estimate."],
 ];
 
 /** The capability ticker under the hero. */

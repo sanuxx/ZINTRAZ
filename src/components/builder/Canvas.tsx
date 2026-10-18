@@ -212,7 +212,7 @@ export default function Canvas({ bp, update, sel = null, setSel, undo, redo, can
               {!bp.nodes.length && !readOnly && (
                 <div className="bc-empty">
                   <b>Your canvas is empty</b>
-                  <span>Drag modules here from the left, or tap + on any module. Then drag from the dot on a module&apos;s right edge to connect it to another.</span>
+                  <span>Drag modules here from the module list, or tap + on any module. Then drag from the dot on a module&apos;s right edge to connect it to another.</span>
                 </div>
               )}
             </div>

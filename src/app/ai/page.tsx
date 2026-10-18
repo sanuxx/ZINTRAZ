@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, LockKeyhole, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowUpRight, LockKeyhole, Sparkles } from "lucide-react";
 import { WHATSAPP } from "@/lib/contact";
 import { functions, opportunity, ticker, trust, why } from "@/components/aipage/data";
 import Orb from "@/components/aipage/Orb";
@@ -8,12 +8,13 @@ import SolutionsReel from "@/components/aipage/SolutionsReel";
 import ApproachDial from "@/components/aipage/ApproachDial";
 import Faq from "@/components/aipage/Faq";
 import AIMotion from "@/components/aipage/AIMotion";
+import DelegateBoard from "@/components/aipage/DelegateBoard";
 
 /**
  * /ai — Artificial Intelligence & Intelligent Systems. Content from the client's AI page brief.
  * Design: light, glassy sections alternating with deep-navy "night" sections; a canvas neural orb in the
  * hero and the closing call; GSAP drives the choreography (see AIMotion, SolutionsReel, ApproachDial).
- * Structure: hero, the opportunity, six AI solutions, AI across the business, the approach, why Zyntraz,
+ * Structure: hero, the opportunity, six AI solutions, the delegate-to-AI demo, AI across the business, the approach, why Zyntraz,
  * security & responsible AI, FAQs, final CTA.
  */
 export const metadata: Metadata = {
@@ -35,7 +36,7 @@ export default function AIPage() {
         <div className="ail-hero-copy">
           <p className="ail-pill"><span><Sparkles size={12} />AI</span>Artificial Intelligence &amp; Intelligent Systems</p>
           <h1 className="ail-h1"><b><span>Make Intelligence</span></b> <i><span>Your Competitive Advantage.</span></i></h1>
-          <p className="ail-sub">Turn AI into a practical business advantage. We design, build, and integrate intelligent systems that help businesses automate operations, unlock insights, improve decision-making, and create new opportunities for growth.</p>
+          <p className="ail-sub">We design, build and integrate AI that automates work, sharpens decisions and helps your business grow.</p>
           <div className="ail-ctas">
             <Link href="/contact" className="ail-btn ail-mag">Discuss Your AI Project <ArrowRight size={16} /></Link>
             <Link href="#solutions" className="ail-btn ghost ail-mag">Explore AI Solutions <ArrowRight size={16} /></Link>
@@ -43,9 +44,6 @@ export default function AIPage() {
         </div>
         <div className="ail-hero-stage">
           <Orb chips />
-        </div>
-        <div className="ail-hero-note" data-ail="rise">
-          <p>From AI-powered applications to enterprise workflow automation and advanced data analytics, Zyntraz helps you move beyond experimentation and put intelligence to work.</p>
         </div>
       </section>
 
@@ -63,10 +61,6 @@ export default function AIPage() {
           <p className="ail-eyebrow"><em>01</em>The Opportunity</p>
           <h2 className="ail-statement" data-words>Your business already has the potential. <span>AI helps you unlock it.</span></h2>
         </div>
-        <div className="ail-opp-cols" data-ail="rise">
-          <p className="ail-lede">Many businesses have valuable data, repetitive processes, and untapped opportunities hidden within their daily operations. The challenge is connecting these pieces into systems that deliver measurable value.</p>
-          <p className="ail-lede">Zyntraz bridges that gap by combining AI engineering, software development, data intelligence, and business process understanding.</p>
-        </div>
         <ul className="ail-opps" data-ail="cine">
           {opportunity.map(({ Icon, title, desc }, i) => (
             <li key={title} className="spot">
@@ -83,19 +77,31 @@ export default function AIPage() {
       <section className="ail-sec ail-dark ail-sol-sec" id="solutions">
         <div className="ail-head row">
           <p className="ail-eyebrow"><em>02</em>Our AI Solutions</p>
-          <h2 className="ail-h2" data-split><b>Practical intelligence.</b> <i>Purpose-built solutions. Measurable business value.</i></h2>
+          <h2 className="ail-h2" data-split><b>Practical intelligence.</b> <i>Measurable value.</i></h2>
         </div>
         <SolutionsReel />
       </section>
 
-      {/* 03 AI Across Your Business */}
+      {/* 03 Delegate to AI */}
+      <section className="ail-sec ail-tint" id="agent-demo">
+        <div className="ail-head split">
+          <div>
+            <p className="ail-eyebrow"><em>03</em>Delegate to AI</p>
+            <h2 className="ail-h2" data-split><b>Hand your busywork</b> <i>to an AI team.</i></h2>
+          </div>
+          <p className="ail-lede">Pick your business, hand over a task and watch the agent work.</p>
+        </div>
+        <DelegateBoard />
+      </section>
+
+      {/* 04 AI Across Your Business */}
       <section className="ail-sec" id="across-business">
         <div className="ail-head split">
           <div>
-            <p className="ail-eyebrow"><em>03</em>AI Across Your Business</p>
+            <p className="ail-eyebrow"><em>04</em>AI Across Your Business</p>
             <h2 className="ail-h2" data-split><b>One technology.</b> <i>Multiple opportunities.</i></h2>
           </div>
-          <p className="ail-lede">AI can support different functions across an organization. We identify the opportunities that matter most to your business and develop solutions around them.</p>
+          <p className="ail-lede">We find where AI matters most in your business, and build there.</p>
         </div>
         <ul className="ail-funcs" data-ail="cine">
           {functions.map(({ Icon, title, uses }, i) => (
@@ -109,21 +115,21 @@ export default function AIPage() {
         </ul>
       </section>
 
-      {/* 04 Our Approach */}
+      {/* 05 Our Approach */}
       <section className="ail-sec ail-tint ail-ap-sec" id="approach">
         <ApproachDial>
           <div className="ail-head">
-            <p className="ail-eyebrow"><em>04</em>Our Approach</p>
+            <p className="ail-eyebrow"><em>05</em>Our Approach</p>
             <h2 className="ail-h2" data-split><b>From business challenge</b> <i>to intelligent solution.</i></h2>
-            <p className="ail-lede">We approach AI as an engineering and transformation process — not a technology experiment. Every engagement starts with a business objective and progresses through a structured implementation lifecycle.</p>
+            <p className="ail-lede">An engineering process, not an experiment. Every project starts with a business goal.</p>
           </div>
         </ApproachDial>
       </section>
 
-      {/* 05 Why Zyntraz */}
+      {/* 06 Why Zyntraz */}
       <section className="ail-sec" id="why">
         <div className="ail-head center">
-          <p className="ail-eyebrow"><em>05</em>Why Zyntraz for AI?</p>
+          <p className="ail-eyebrow"><em>06</em>Why Zyntraz for AI?</p>
           <h2 className="ail-h2" data-split><b>Intelligence engineered</b> <i>around your business.</i></h2>
         </div>
         <ol className="ail-why" data-ail="rise">
@@ -140,14 +146,13 @@ export default function AIPage() {
         </ol>
       </section>
 
-      {/* 06 Security, Privacy & Responsible AI */}
+      {/* 07 Security, Privacy & Responsible AI */}
       <section className="ail-sec ail-dark" id="responsible-ai">
         <div className="ail-split">
           <div className="ail-split-copy">
-            <p className="ail-eyebrow"><em>06</em>Security, Privacy &amp; Responsible AI</p>
+            <p className="ail-eyebrow"><em>07</em>Security, Privacy &amp; Responsible AI</p>
             <h2 className="ail-h2" data-split><b>Intelligence you can build on</b> <i>with confidence.</i></h2>
-            <p className="ail-lede">AI solutions must do more than produce useful outputs. They must operate within appropriate security, privacy, and governance boundaries.</p>
-            <p className="ail-lede">Zyntraz considers these requirements throughout solution design and implementation, based on the needs of each project.</p>
+            <p className="ail-lede">Security, privacy and governance are designed in from day one, not added later.</p>
           </div>
           <div className="ail-shield" aria-hidden="true">
             <svg viewBox="0 0 400 400">
@@ -164,14 +169,13 @@ export default function AIPage() {
             <li key={title} className="spot"><span className="ail-ico"><Icon size={18} /></span><b>{title}</b><p>{desc}</p></li>
           ))}
         </ul>
-        <p className="ail-note"><ShieldCheck size={18} />Your data requirements, regulatory obligations, and deployment preferences help determine the right architecture. Specific privacy and security guarantees should be established for each solution rather than assumed.</p>
       </section>
 
-      {/* 07 FAQs */}
+      {/* 08 FAQs */}
       <section className="ail-sec" id="faq">
         <div className="ail-faq">
           <div className="ail-head">
-            <p className="ail-eyebrow"><em>07</em>Frequently Asked Questions</p>
+            <p className="ail-eyebrow"><em>08</em>Frequently Asked Questions</p>
             <h2 className="ail-h2" data-split><b>Questions,</b> <i>answered.</i></h2>
             <p className="ail-lede">Something else on your mind? <Link href="/contact">Ask us directly</Link>.</p>
           </div>
@@ -179,14 +183,13 @@ export default function AIPage() {
         </div>
       </section>
 
-      {/* 08 Final CTA */}
+      {/* 09 Final CTA */}
       <section className="ail-final">
         <div className="ail-final-card">
           <Orb tone="dark" className="ail-final-orb" />
           <p className="ail-final-eyebrow">Your next advantage starts here</p>
           <h2>Don&apos;t just adapt to the future. <span>Engineer it.</span></h2>
-          <p>Whether you&apos;re exploring your first AI initiative or transforming an established business operation, let&apos;s identify where intelligent technology can create meaningful value.</p>
-          <p>Bring us your challenge. We&apos;ll help you explore the right solution, define a practical path forward, and turn the opportunity into an actionable plan.</p>
+          <p>Bring us your challenge. We&apos;ll turn it into a practical plan.</p>
           <div className="ail-ctas">
             <Link href="/contact" className="ail-btn light ail-mag">Start Your AI Project <ArrowRight size={16} /></Link>
             <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="ail-btn outline ail-mag">Talk to Our Team <ArrowRight size={16} /></a>
