@@ -20,7 +20,7 @@ export default function ProductsHero() {
     <section className="pho">
       <span className="pho-horizon" aria-hidden="true" />
       <div className="container pho-inner">
-        <div className="pho-copy" data-reveal>
+        <div className="pho-copy">
           <p className="pho-tag"><Sparkles size={13} /> {products.length} products, one connected core</p>
           <h1 className="pho-title">Business technology,<br />already engineered.</h1>
           <p className="pho-lede">Proven business workflows turned into ready-to-use systems, each designed around a real operational need.</p>

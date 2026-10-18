@@ -3246,6 +3246,16 @@ html.rm .pz-table.s-live, html.rm .pz-line, html.rm .pz-sent i, html.rm .pcore-w
 .lap3-vignette { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: radial-gradient(120% 90% at 50% 42%, transparent 55%, rgba(0,0,0,.55) 100%); }
 
 .lap3.is-loading { background: radial-gradient(50% 40% at 50% 55%, rgba(11,92,255,.22), #0a0d14 75%); }
+.lap3 canvas { opacity: 0; transition: opacity .6s var(--ease); }
+.lap3.is-ready canvas { opacity: 1; }
+/* Desktop loading: the live demo sits in a flat stand-in over the stage until the 3D set is ready (Laptop3D). */
+.lap3-host { position: relative; }
+.lap3-slot { height: 100%; }
+.lap3-early { position: absolute; inset: 0; z-index: 5; display: grid; place-items: center; transition: opacity .5s var(--ease), visibility .5s; }
+.lap3-early.is-gone { opacity: 0; visibility: hidden; }
+.lap3-early-dev { width: 66%; padding: 10px 10px 12px; border-radius: 20px; background: linear-gradient(180deg, #2e3138, #101216); box-shadow: 0 0 0 1.5px #4a4e57, 0 40px 80px -30px rgba(0,0,0,.7); }
+.lap3-early-screen { position: relative; aspect-ratio: 960 / 600; overflow: hidden; border-radius: 8px; background: #fff; }
+.lap3-early-screen > .lap3-screen { transform-origin: 0 0; border-radius: 0; }
 .lap3-screen { position: relative; overflow: hidden; border-radius: 4px; background: #fff; }
 /* Glass: a soft diagonal glare and a faint edge sheen over the live screen (clicks pass through). */
 .lap3-screen::after { content: ""; position: absolute; inset: 0; z-index: 30; pointer-events: none; background: linear-gradient(118deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,.07) 26%, transparent 38%, transparent 70%, rgba(255,255,255,.05) 100%); box-shadow: inset 0 0 0 1px rgba(255,255,255,.08), inset 0 0 40px rgba(0,0,0,.08); }

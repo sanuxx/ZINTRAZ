@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Bounds, PerformanceMonitor } from "@react-three/drei";
 import { MathUtils, type Group } from "three";
@@ -16,54 +16,46 @@ import { BASE_PATH } from "@/lib/site";
  * - Pose: a fixed three-quarter turn (DEVICE3D.pose), so the left side, its ports and the chassis
  *   thickness read. Framing: <Bounds> fits a static proxy of the open laptop to the canvas (and
  *   refits on resize), so the device is never clipped at any size.
- * - Motion, all in useFrame on refs (no React renders per frame): entrance (body rises and turns in,
- *   lid opens) the first time the stage is in view; while the pointer is over the stage the device
- *   leans a few degrees toward it, and settles back to the default pose when it leaves.
- *   Reduced motion: shown open and still.
+ * - Motion, all in useFrame on refs (no React renders per frame): while the pointer is over the stage
+ *   the device leans a few degrees toward it, and settles back to the default pose when it leaves.
+ *   It appears already open (no entrance): the live demo is on screen in Laptop3D's flat stand-in
+ *   while this scene loads, and a lid opening would hide it. Reduced motion: still.
  * - Quality: PerformanceMonitor drops the pixel ratio and the floor reflection on weak GPUs; the frame
  *   loop stops while the stage is off screen.
+ * - Loading: the frame loop stays off (the stage shows its loading glow) until Studio reports every
+ *   shader compiled, then the set fades in and `onReady` fires, so the first frames never stall the page.
  */
-function Rig({ open, still, pointer, children }: { open: boolean; still: boolean; pointer: React.RefObject<{ x: number; y: number; over: boolean }>; children: (lid: React.RefObject<Group | null>) => ReactNode }) {
+function Rig({ still, pointer, children }: { still: boolean; pointer: React.RefObject<{ x: number; y: number; over: boolean }>; children: (lid: React.RefObject<Group | null>) => ReactNode }) {
   const body = useRef<Group>(null);
   const lid = useRef<Group>(null);
-  const settle = useRef(still ? 1 : 0); // 0 = entrance start, 1 = at rest
 
   useFrame((_, dt) => {
     const b = body.current, l = lid.current;
     if (!b || !l) return;
-    if (still) {
-      l.rotation.x = DEVICE3D.lid.open;
-      return;
-    }
-    if (open) settle.current = MathUtils.damp(settle.current, 1, 1.6, dt);
-    const s = settle.current;
+    l.rotation.x = DEVICE3D.lid.open;
+    if (still) return;
     const p = pointer.current;
     const px = p.over ? p.x : 0, py = p.over ? p.y : 0;
-    l.rotation.x = MathUtils.damp(l.rotation.x, open ? DEVICE3D.lid.open : DEVICE3D.lid.closed, 2.2, dt);
-    b.position.y = MathUtils.damp(b.position.y, (1 - s) * -2.2, 4, dt);
-    b.rotation.y = MathUtils.damp(b.rotation.y, (1 - s) * 0.32 + px * 0.12, 3, dt);
+    b.rotation.y = MathUtils.damp(b.rotation.y, px * 0.12, 3, dt);
     b.rotation.x = MathUtils.damp(b.rotation.x, py * 0.035, 3, dt);
   });
 
   return <group ref={body}>{children(lid)}</group>;
 }
 
-export default function LaptopScene({ children }: { children: ReactNode }) {
+export default function LaptopScene({ children, onReady }: { children: ReactNode; onReady?: () => void }) {
   const wrap = useRef<HTMLDivElement>(null);
   const pointer = useRef({ x: 0, y: 0, over: false });
-  const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(true);
   const [ready, setReady] = useState(false);
+  const onWarm = useCallback(() => { setReady(true); onReady?.(); }, [onReady]);
   const [quality, setQuality] = useState<"high" | "low">("high");
   const [still] = useState(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches || document.documentElement.classList.contains("rm"));
 
   useEffect(() => {
     const el = wrap.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => {
-      setVisible(e.isIntersecting);
-      if (e.isIntersecting && e.intersectionRatio > 0.25) setOpen(true);
-    }, { threshold: [0, 0.25, 0.5] });
+    const io = new IntersectionObserver(([e]) => setVisible(e.isIntersecting));
     io.observe(el);
     const move = (e: PointerEvent) => {
       const r = el.getBoundingClientRect();
@@ -76,25 +68,25 @@ export default function LaptopScene({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <div ref={wrap} className={`lap3${ready ? " is-ready" : ""}`}>
+    <div ref={wrap} className={`lap3 ${ready ? "is-ready" : "is-loading"}`}>
       <Canvas
         camera={{ position: DEVICE3D.camera.position, fov: DEVICE3D.camera.fov, near: 1, far: 400 }}
         dpr={quality === "high" ? DEVICE3D.dpr : [1, 1.25]}
-        frameloop={visible ? "always" : "never"}
+        frameloop={visible && ready ? "always" : "never"}
         gl={{ antialias: true, powerPreference: "high-performance" }}
-        onCreated={({ gl }) => { gl.toneMappingExposure = DEVICE3D.exposure; setReady(true); }}
+        onCreated={({ gl }) => { gl.toneMappingExposure = DEVICE3D.exposure; }}
       >
         <PerformanceMonitor onDecline={() => setQuality("low")} onIncline={() => setQuality("high")} flipflops={2} />
-        <Studio quality={quality} />
+        <Studio quality={quality} onWarm={onWarm} />
         <group rotation-y={DEVICE3D.pose.yaw}>
           {/* Framing proxy: the open laptop's width and height, kept shallow so Bounds fits to what the camera
-              sees rather than to the deck's depth (static, so the entrance motion never refits). */}
-          <Bounds fit clip observe margin={0.94} maxDuration={0}>
+              sees rather than to the deck's depth (static, so the pointer lean never refits). */}
+          <Bounds fit clip observe margin={0.86} maxDuration={0}>
             <mesh visible={false} position={[0, 9.2, -1]}>
               <boxGeometry args={[BASE.w + 0.6, 21, 3]} />
             </mesh>
           </Bounds>
-          <Rig open={open || still} still={still} pointer={pointer}>
+          <Rig still={still} pointer={pointer}>
             {(lid) => (
               <group position={[0, 0, -BASE.d / 2]}>
                 <ProceduralLaptop ref={lid} screen={children} />

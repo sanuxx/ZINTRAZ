@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense, useEffect, useMemo } from "react";
+import { useThree } from "@react-three/fiber";
 import { ContactShadows, Environment, Lightformer, MeshReflectorMaterial } from "@react-three/drei";
 import { CanvasTexture } from "three";
 import { DEVICE3D } from "@/lib/device3d";
@@ -13,6 +14,10 @@ import { DEVICE3D } from "@/lib/device3d";
  * - Direct light: soft key from above-front-left, restrained fill from the right, cool rim from behind.
  * - Set: a seamless backdrop (lit pool fading into the floor colour), a floor that is glossy and
  *   reflective at high quality and matte at low quality, and soft contact shadows under the device.
+ * - Warm-up: once the environment is in place, every shader in the scene is compiled with
+ *   compileAsync (parallel, off the main thread where KHR_parallel_shader_compile exists) and then
+ *   `onWarm` fires. Compiling on the first frame instead blocks the page for seconds on Windows/ANGLE,
+ *   and compiling before the environment arrives means compiling every lit material twice.
  */
 export const FLOOR_Y = -1.08;
 const STAGE = DEVICE3D.stage;
@@ -45,7 +50,17 @@ function Backdrop() {
   );
 }
 
-export default function Studio({ quality }: { quality: "high" | "low" }) {
+function Warmup({ onDone }: { onDone: () => void }) {
+  const { gl, scene, camera } = useThree();
+  useEffect(() => {
+    let live = true;
+    gl.compileAsync(scene, camera).catch(() => {}).finally(() => { if (live) onDone(); });
+    return () => { live = false; };
+  }, [gl, scene, camera, onDone]);
+  return null;
+}
+
+export default function Studio({ quality, onWarm }: { quality: "high" | "low"; onWarm: () => void }) {
   return (
     <>
       <color attach="background" args={[STAGE]} />
@@ -66,6 +81,7 @@ export default function Studio({ quality }: { quality: "high" | "low" }) {
           <Lightformer form="rect" intensity={2.6} position={[0, 12, -42]} scale={[110, 30, 1]} />
           <Lightformer form="rect" intensity={0.9} color="#ffdcb8" position={[28, -2, 30]} rotation-y={-Math.PI / 4} scale={[18, 8, 1]} />
         </Environment>
+        <Warmup onDone={onWarm} />
       </Suspense>
       <mesh rotation-x={-Math.PI / 2} position={[0, FLOOR_Y, 0]}>
         <planeGeometry args={[400, 400]} />

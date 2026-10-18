@@ -3,7 +3,7 @@
 import { forwardRef, useEffect, useLayoutEffect, useMemo, useRef, type ReactNode } from "react";
 import { Html } from "@react-three/drei";
 import {
-  BufferGeometry, CanvasTexture, CircleGeometry, CylinderGeometry, ExtrudeGeometry, InstancedMesh, MeshBasicMaterial, MeshPhysicalMaterial,
+  BufferGeometry, CanvasTexture, CircleGeometry, CylinderGeometry, ExtrudeGeometry, InstancedMesh, MeshBasicMaterial,
   MeshStandardMaterial, Object3D, RepeatWrapping, Shape, ShapeGeometry, type Group,
 } from "three";
 import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeometry.js";
@@ -160,18 +160,19 @@ function Grilles({ material }: { material: MeshStandardMaterial }) {
 const ProceduralLaptop = forwardRef<Group, { screen: ReactNode }>(function ProceduralLaptop({ screen }, lidRef) {
   const parts = useMemo(() => {
     const brushed = brushedTexture();
-    const alu = new MeshPhysicalMaterial({
-      color: "#cfd2d7", metalness: 1, roughness: 0.72, roughnessMap: brushed, anisotropy: 0.55,
-      clearcoat: 0.08, clearcoatRoughness: 0.4,
-    });
+    // All MeshStandardMaterial: three.js compiles one shader program per distinct material *setup*
+    // (colour, roughness and metalness are uniforms), so the plain parts below share one program and the
+    // brushed aluminium adds one more. The MeshPhysicalMaterial versions (clearcoat, anisotropy) each
+    // compiled their own, heavier program, which held the first frame for seconds on Windows/ANGLE.
+    const alu = new MeshStandardMaterial({ color: "#cfd2d7", metalness: 1, roughness: 0.72, roughnessMap: brushed });
     // Restrained glass: a soft sheen rather than a sharp mirror of the studio walls.
-    const glass = new MeshPhysicalMaterial({ color: "#040506", metalness: 0, roughness: 0.22, clearcoat: 1, clearcoatRoughness: 0.18, ior: 1.5, envMapIntensity: 0.22 });
+    const glass = new MeshStandardMaterial({ color: "#040506", metalness: 0, roughness: 0.16, envMapIntensity: 0.3 });
     const keys = new MeshStandardMaterial({ color: "#111216", roughness: 0.72, metalness: 0 });
     const well = new MeshStandardMaterial({ color: "#08090b", roughness: 0.92 });
-    const hinge = new MeshPhysicalMaterial({ color: "#2a2c31", metalness: 0.85, roughness: 0.38 });
+    const hinge = new MeshStandardMaterial({ color: "#2a2c31", metalness: 0.85, roughness: 0.38 });
     const dark = new MeshStandardMaterial({ color: "#050506", roughness: 0.55 });
     const dots = new MeshStandardMaterial({ color: "#16181c", roughness: 0.85 });
-    const pad = new MeshPhysicalMaterial({ color: "#bfc3c9", metalness: 0.85, roughness: 0.42, clearcoat: 0.15, clearcoatRoughness: 0.3 });
+    const pad = new MeshStandardMaterial({ color: "#bfc3c9", metalness: 0.85, roughness: 0.4 });
     const padEdge = new MeshStandardMaterial({ color: "#8d9299", metalness: 0.8, roughness: 0.4 });
     const glow = new MeshBasicMaterial({ color: "#eef2f8", toneMapped: false });
 
@@ -248,7 +249,7 @@ const ProceduralLaptop = forwardRef<Group, { screen: ReactNode }>(function Proce
       {geos.ports.map((g, i) => <mesh key={i} geometry={g} material={mats.dark} />)}
       <mesh geometry={geos.hingeGeo} material={mats.hinge} position={[0, -0.12, 0.32]} />
       {/* Lid, pivoting on the hinge axis */}
-      <group ref={lidRef} position={[0, -0.05, 0.36]} rotation-x={DEVICE3D.lid.closed}>
+      <group ref={lidRef} position={[0, -0.05, 0.36]} rotation-x={DEVICE3D.lid.open}>
         <mesh geometry={geos.lid} material={mats.alu} />
         <mesh geometry={geos.bezel} material={mats.glass} />
         <mesh geometry={geos.screenGlow} material={mats.glow} />
