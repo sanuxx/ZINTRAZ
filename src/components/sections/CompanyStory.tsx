@@ -1,9 +1,8 @@
-import { Bot, BrainCircuit, CalendarDays, Hotel, MapPin, Sparkles, User, UtensilsCrossed } from "lucide-react";
+import { Bot, BrainCircuit, CalendarDays, Hotel, MapPin, Sparkles, UtensilsCrossed } from "lucide-react";
 
 const facts = [
   { icon: CalendarDays, title: "Founded January 2026", desc: "A new company, built from day one around business transformation — not a web shop that added AI later." },
   { icon: MapPin, title: "Based in Sri Lanka", desc: "Working with businesses in Sri Lanka and beyond, in person and remotely." },
-  { icon: User, title: "Founded by Sanuga", desc: "Started to give growing businesses one partner that understands the operation and engineers what it needs." },
   { icon: Sparkles, title: "Innovate • Dominate • Elevate", desc: "Innovate how you operate, dominate your market with better systems, and elevate the way your team works." },
 ];
 
@@ -29,7 +28,7 @@ export default function CompanyStory() {
               other way round: understand the business first, then design, build and keep improving the systems it needs.
             </p>
           </div>
-          <div className="promise-grid">
+          <div className="promise-grid cols-3">
             {facts.map(({ icon: Icon, title, desc }, i) => (
               <div key={title} className="glass spot promise" data-reveal style={{ ["--d" as string]: `${i * 0.08}s` }}>
                 <Icon className="promise-ico" size={26} />
