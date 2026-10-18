@@ -1214,21 +1214,8 @@ html.rm .pm-tag, html.rm .app-nav, html.rm .app-card { animation: none; }
 .skip-btn:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.3); }
 .jr .skip-btn { bottom: 34px; }
 
-/* Mobile sticky call to action */
-.mcta { display: none; }
 @media (max-width: 833px) {
   .wa-fab { display: none; }
-  .mcta {
-    position: fixed; z-index: 55; left: 12px; right: 12px; bottom: max(12px, env(safe-area-inset-bottom));
-    display: flex; gap: 8px; padding: 8px; border-radius: 20px;
-    background: rgba(18,18,20,.88); border: 1px solid rgba(255,255,255,.1); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 16px 40px -12px rgba(0,0,0,.6);
-    transform: translateY(140%); transition: transform .5s var(--ease);
-  }
-  .mcta.is-shown { transform: none; }
-  .mcta-main { flex: 1; padding: 13px 16px; font-size: 16px; }
-  .mcta-wa { width: 48px; flex-shrink: 0; display: grid; place-items: center; border-radius: 14px; background: #25d366; color: #fff; }
-  .gfoot { padding-bottom: 96px; }
   .skip-btn, .jr .skip-btn { top: calc(var(--nav-h) + 14px); bottom: auto; right: 16px; }
 }
 
@@ -5560,5 +5547,3 @@ html.rm .ail-dl *, html.rm .ail-dl *::after { animation: none !important; }
 .gfoot-col summary { list-style: none; pointer-events: none; }
 .gfoot-col summary::-webkit-details-marker { display: none; }
 
-/* The footer restyle above resets its padding; keep room under it for the sticky phone call to action. */
-@media (max-width: 833px) { .gfoot { padding-bottom: calc(110px + env(safe-area-inset-bottom)); } }

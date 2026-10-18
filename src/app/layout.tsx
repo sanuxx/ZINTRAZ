@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import MobileCTA from "@/components/layout/MobileCTA";
 import ClientEffects from "@/components/ui/ClientEffects";
 import TextFold from "@/components/ui/TextFold";
 import { BASE_PATH } from "@/lib/site";
@@ -48,7 +47,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header />
         <main>{children}</main>
         <Footer />
-        <MobileCTA />
       </body>
     </html>
   );
