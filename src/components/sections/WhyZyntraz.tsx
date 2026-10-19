@@ -16,7 +16,7 @@ export default function WhyZyntraz() {
         <SectionHead
           eyebrow="Why ZYNTRAZ"
           heading={<>Built around your business. <span className="grad-text">Not around a template.</span></>}
-          lede="Not a SaaS subscription you bend your business around. Not a freelancer. Not another AI agency bolting a chatbot onto your website. One team that understands your operation and engineers everything it needs — software, AI, data and automation, working together."
+          lede="Not a SaaS you bend around. Not a freelancer. Not a chatbot bolt-on. One team that understands your operation and engineers what it needs."
           center
         />
         <PillarGrid items={pillars} cols={3} />

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Glance from "@/components/ui/Glance";
+import PageChapters from "@/components/ui/PageChapters";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import CinematicHero from "@/components/hero/CinematicHero";
@@ -36,14 +38,25 @@ export default function TransformationPage() {
         lede={
           <>
             Digital transformation shouldn&apos;t mean replacing a spreadsheet with a web application.{" "}
-            <strong>Real transformation changes how the business works.</strong> We help organizations rethink
-            processes, connect systems, introduce intelligence and engineer new operational capabilities.
+            <strong>Real transformation changes how the business works.</strong>
           </>
         }
         primary={{ label: "Explore your transformation", href: "/consultation" }}
         secondary={{ label: "See the layers", href: "#layers" }}
         backdrop={<ShatterField />}
       />
+
+      <Glance items={[
+        { value: "6", label: "Layers, one direction" },
+        { value: "9", label: "Outcomes transformation should create" },
+        { value: "8", label: "Everyday problems, each with its fix" },
+      ]} />
+      <PageChapters items={[
+        { id: "layers", label: "Layers" },
+        { id: "outcomes", label: "Outcomes" },
+        { id: "problems", label: "Problems" },
+        { id: "solutions", label: "The fix" },
+      ]} />
 
       {/* Set piece: the six layers flown through, one at a time. */}
       <LayerFlight />

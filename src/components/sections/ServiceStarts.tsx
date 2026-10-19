@@ -4,19 +4,19 @@ import { ChevronRight, Compass, Globe, Sparkles, UtensilsCrossed } from "lucide-
 const starts = [
   {
     icon: Globe, title: "A website or online store",
-    desc: "A fast, modern business website or e-commerce store — designed around your customers and ready to grow into a full system later.",
+    desc: "A fast business website or store, ready to grow into a full system.",
   },
   {
     icon: Compass, title: "A transformation assessment",
-    desc: "We map how your business runs today and give you a clear roadmap, timeline and estimate before any commitment.",
+    desc: "A clear roadmap, timeline and estimate, before any commitment.",
   },
   {
     icon: Sparkles, title: "An AI or automation pilot",
-    desc: "One high-value process — replies, orders, reports or approvals — automated on your real data, so you see results before scaling.",
+    desc: "One process automated on your real data, so you see results first.",
   },
   {
     icon: UtensilsCrossed, title: "A ready-made platform",
-    desc: "Restaurants can go live on ZynRest, then we customise it to the way you work and connect it to the rest of your business.",
+    desc: "Restaurants go live on ZynRest, customised to the way they work.",
   },
 ];
 
@@ -30,7 +30,7 @@ export default function ServiceStarts() {
             Start small. <span className="grad-text">Grow into a system.</span>
           </h2>
           <p className="lede" data-reveal style={{ ["--d" as string]: ".16s" }}>
-            You don&apos;t need a big project to work with us. Most clients begin with one of these.
+            No big project needed. Most clients begin with one of these.
           </p>
         </div>
 

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Glance from "@/components/ui/Glance";
+import PageChapters from "@/components/ui/PageChapters";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, LockKeyhole, Sparkles } from "lucide-react";
 import { WHATSAPP } from "@/lib/contact";
@@ -54,6 +56,22 @@ export default function AIPage() {
           ))}
         </div>
       </div>
+
+      <Glance items={[
+        { value: "6", label: "AI solutions, from integration to strategy" },
+        { value: "6", label: "Steps from business challenge to live system" },
+        { value: "1", label: "Team for AI, software, data and integrations" },
+        { value: "100%", label: "Human approval on the decisions that matter" },
+      ]} />
+      <PageChapters items={[
+        { id: "opportunity", label: "Opportunity" },
+        { id: "solutions", label: "Solutions" },
+        { id: "agent-demo", label: "Try an agent" },
+        { id: "across-business", label: "Across your business" },
+        { id: "approach", label: "Approach" },
+        { id: "responsible-ai", label: "Responsible AI" },
+        { id: "faq", label: "FAQs" },
+      ]} />
 
       {/* 01 The Opportunity */}
       <section className="ail-sec" id="opportunity">

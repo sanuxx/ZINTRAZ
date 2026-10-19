@@ -38,14 +38,14 @@ export default function HomeOverview() {
           <SectionHead
             eyebrow="What ZYNTRAZ does"
             heading={<>We don&apos;t just build software. <span className="grad-text">We engineer transformation.</span></>}
-            lede="ZYNTRAZ combines business analysis, strategy, software engineering, artificial intelligence, data and connected technologies to create systems around the way your business actually works. From the first conversation to long-term optimization, we connect business thinking with engineering execution."
+            lede="Business analysis, strategy, software, AI, data and connected technology — one team, from the first conversation to long-term optimisation."
             center
           />
           <WhatPipeline />
         </div>
       </section>
 
-      <section className="section alt" id="capabilities">
+      <section className="section alt spot" id="capabilities">
         <div className="container">
           <SectionHead
             eyebrow="Our capabilities"

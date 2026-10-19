@@ -34,7 +34,7 @@ export default function HomeProcess() {
   }, []);
 
   return (
-    <section ref={ref} className="section hp">
+    <section ref={ref} className="section hp spot">
       <div className="container">
         <div className="section-head center">
           <p className="eyebrow" data-reveal>The transformation model</p>

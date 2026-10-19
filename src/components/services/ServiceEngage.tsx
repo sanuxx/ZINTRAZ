@@ -35,7 +35,7 @@ const models = [
 
 export default function ServiceEngage() {
   return (
-    <section className="section alt sve">
+    <section className="section alt sve" id="engage">
       <div className="container">
         <div className="section-head center" data-keep>
           <p className="eyebrow" data-reveal>How we engage</p>
@@ -43,7 +43,7 @@ export default function ServiceEngage() {
             Three ways to work <span className="grad-text">with one team.</span>
           </h2>
           <p className="lede" data-reveal style={{ ["--d" as string]: ".12s" }}>
-            Pick the shape that fits the work. You can move between them as the work changes.
+            Pick the shape that fits. Switch as the work changes.
           </p>
         </div>
         <div className="sve-grid" data-reveal data-keep style={{ ["--d" as string]: ".16s" }}>

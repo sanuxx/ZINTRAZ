@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Glance from "@/components/ui/Glance";
 import CinematicHero from "@/components/hero/CinematicHero";
 import { PathNodes } from "@/components/hero/backdrops";
 import CTABand from "@/components/layout/CTABand";
@@ -27,6 +28,12 @@ export default function HowWeWorkPage() {
         backdrop={<PathNodes />}
       />
 
+      <Glance items={[
+        { value: "7", label: "Phases, first call to ongoing support" },
+        { value: "4", label: "Stages: understand, design, engineer, transform" },
+        { value: "Weekly", label: "Demos — real progress, no surprises" },
+        { value: "Free", label: "First consultation, no commitment" },
+      ]} />
       {/* The process as the engineering team runs it, with the detail behind each stage. (The six-step
           ProcessConveyor used to sit above it, repeating the same process with a different step count.) */}
       <Workflow />
