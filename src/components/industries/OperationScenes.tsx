@@ -39,7 +39,7 @@ const Sheet = ({ name, rows }: { name: string; rows: string[][] }) => (
 export const SCENES: Record<string, Scene> = {
   hospitality: {
     app: "Front office",
-    url: "app.zyntraz.com/hotel/front-office",
+    url: "app.zintraz.com/hotel/front-office",
     Before: ({ t }) => (
       <>
         <div className="ops-spot s0 bf-ledger">
@@ -82,7 +82,7 @@ export const SCENES: Record<string, Scene> = {
 
   healthcare: {
     app: "Clinic",
-    url: "app.zyntraz.com/clinic/today",
+    url: "app.zintraz.com/clinic/today",
     Before: ({ t }) => (
       <>
         <div className="ops-spot s0 bf-folders">
@@ -129,7 +129,7 @@ export const SCENES: Record<string, Scene> = {
 
   education: {
     app: "School portal",
-    url: "app.zyntraz.com/school/term-3",
+    url: "app.zintraz.com/school/term-3",
     Before: ({ t }) => (
       <>
         <div className="ops-spot s0 bf-receipt bf-carbon">
@@ -179,7 +179,7 @@ export const SCENES: Record<string, Scene> = {
 
   retail: {
     app: "Commerce",
-    url: "app.zyntraz.com/retail/overview",
+    url: "app.zintraz.com/retail/overview",
     Before: ({ t }) => (
       <>
         <div className="ops-spot s0 ops-sheet">
@@ -221,7 +221,7 @@ export const SCENES: Record<string, Scene> = {
 
   corporate: {
     app: "Workspace",
-    url: "app.zyntraz.com/workspace/approvals",
+    url: "app.zintraz.com/workspace/approvals",
     Before: ({ t }) => (
       <>
         <div className="ops-spot s0 bf-inbox">
@@ -268,7 +268,7 @@ export const SCENES: Record<string, Scene> = {
 
   other: {
     app: "Custom platform",
-    url: "app.zyntraz.com/ops/live",
+    url: "app.zintraz.com/ops/live",
     Before: ({ t }) => (
       <>
         <div className="ops-spot s0 bf-listing">

@@ -9,9 +9,9 @@ const pillars = [
   { icon: RefreshCw, title: "Long-term thinking", desc: "We don't disappear after deployment. Transformation is an ongoing process." },
 ];
 
-export default function WhyZyntraz() {
+export default function WhyZintraz() {
   return (
-    <section className="section" id="why-zyntraz">
+    <section className="section" id="why-zintraz">
       <div className="container">
         <SectionHead
           eyebrow="Why ZINTRAZ"

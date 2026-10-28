@@ -21,7 +21,7 @@ const STEPS = [
   { name: "Experience it", Icon: Eye },
   { name: "Send to us", Icon: SendIcon },
 ];
-const KEY = "zyntraz-system-blueprint";
+const KEY = "zintraz-system-blueprint";
 
 export default function SystemBuilder() {
   const [bp, setBp] = useState<Blueprint>(blankBlueprint);

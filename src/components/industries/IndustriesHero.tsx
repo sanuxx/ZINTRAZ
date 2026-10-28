@@ -30,7 +30,7 @@ export default function IndustriesHero() {
         <div className="inx-copy" data-reveal>
           <p className="inx-brand">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`${BASE_PATH}/zyntraz-mark.png`} alt="" width={94} height={94} />
+            <img src={`${BASE_PATH}/zintraz-mark.png`} alt="" width={94} height={94} />
             <span>ZINTRAZ <em>Industries</em></span>
           </p>
           <h1 className="inx-title">Different industries.<br /><span className="grad-text">One engineering mindset.</span></h1>

@@ -25,7 +25,7 @@ export function SoftwareVisual() {
     { id: "#4824", who: "City Clinic", amt: "24,300", st: "Paid" },
   ];
   return (
-    <Chrome title="operations.zyntraz.app">
+    <Chrome title="operations.zintraz.app">
       <div className="sx-app">
         <nav className="sx-side">
           <LayoutGrid size={15} className="on" /><Receipt size={15} /><Package size={15} /><Truck size={15} /><Users size={15} /><Settings size={15} />

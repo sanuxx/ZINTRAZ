@@ -5811,16 +5811,16 @@ html.rm .nh-sweep { animation: none; display: none; }
 :root { --mist: #eef2f8; --mist-2: #e3e9f3; }
 
 /* Light chapters: mist tones with soft corner glows (these backgrounds also replace the grid pattern). */
-.hpain, #what-we-do, #industries, #why-zyntraz { background-color: var(--mist); }
+.hpain, #what-we-do, #industries, #why-zintraz { background-color: var(--mist); }
 .hpain, #industries { background-color: var(--mist-2); }
-.hpain, #what-we-do, #industries, #why-zyntraz {
+.hpain, #what-we-do, #industries, #why-zintraz {
   background-image: radial-gradient(48% 42% at 100% 0%, rgba(11,92,255,.09), transparent 70%), radial-gradient(40% 40% at 0% 100%, rgba(124,58,237,.06), transparent 70%);
   background-size: auto; background-position: 0 0;
 }
 .tiles:has(.wf, .bb) { background: var(--mist); }
 .tiles .bb { background: radial-gradient(70% 55% at 50% 0%, rgba(11,92,255,.08), transparent 70%), var(--mist-2); }
 
-.hpain, #what-we-do, #industries, #why-zyntraz { overflow-x: clip; }
+.hpain, #what-we-do, #industries, #why-zintraz { overflow-x: clip; }
 
 /* Night chapters: deep navy, a glowing horizon at the top edge, light tokens for everything inside. */
 #capabilities, .section.hp {
@@ -5861,7 +5861,7 @@ html.rm .nh-sweep { animation: none; display: none; }
 
 /* Home trial chapters: mist sections get the same treatment; navy chapters get pale silk lines. */
 .hpain, #industries { background-image: var(--silk), var(--aur-2); background-size: 1400px auto, 100% 100%, 100% 100%, 100% 100%; background-position: left -320px bottom -60px, 0 0, 0 0, 0 0; background-repeat: no-repeat; }
-#what-we-do, #why-zyntraz { background-image: var(--silk), var(--aur-1); background-size: 1400px auto, 100% 100%, 100% 100%, 100% 100%; background-position: right -300px top -40px, 0 0, 0 0, 0 0; background-repeat: no-repeat; }
+#what-we-do, #why-zintraz { background-image: var(--silk), var(--aur-1); background-size: 1400px auto, 100% 100%, 100% 100%, 100% 100%; background-position: right -300px top -40px, 0 0, 0 0, 0 0; background-repeat: no-repeat; }
 #capabilities, .section.hp { background-image: var(--silk-dark), radial-gradient(70% 50% at 50% 0%, rgba(40,90,255,.28), transparent 70%), radial-gradient(55% 60% at 100% 100%, rgba(109,93,252,.16), transparent 70%);
   background-size: 1400px auto, 100% 100%, 100% 100%; background-position: right -300px bottom -80px, 0 0, 0 0; background-repeat: no-repeat; background-color: #050816; }
 

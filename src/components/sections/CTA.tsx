@@ -90,14 +90,14 @@ export default function CTA() {
                 Start a project
               </Link>
               <Link
-                href="mailto:hello@zyntraz.com"
+                href="mailto:hello@zintraz.com"
                 className="btn-glass"
                 style={{
                   fontSize: 15, fontWeight: 500, color: "rgba(255,255,255,0.8)",
                   textDecoration: "none", padding: "14px 32px", borderRadius: 999, display: "inline-block",
                 }}
               >
-                hello@zyntraz.com
+                hello@zintraz.com
               </Link>
             </div>
           </div>

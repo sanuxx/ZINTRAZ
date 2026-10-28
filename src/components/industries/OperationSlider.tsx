@@ -87,7 +87,7 @@ export default function OperationSlider({ ind }: { ind: Industry }) {
             <div className="ops-app-body">
               <nav className="ops-side" aria-hidden="true">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`${BASE_PATH}/zyntraz-mark.png`} alt="" width={22} height={22} />
+                <img src={`${BASE_PATH}/zintraz-mark.png`} alt="" width={22} height={22} />
                 <LayoutGrid size={16} className="on" /><Users size={16} /><FileText size={16} /><Bell size={16} /><Settings size={16} />
               </nav>
               <div className="ops-main">

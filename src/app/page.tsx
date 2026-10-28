@@ -6,7 +6,7 @@ import HomeProcess from "@/components/home/HomeProcess";
 import WorkforceScene from "@/components/home/WorkforceScene";
 import BusinessBlueprint from "@/components/home/BusinessBlueprint";
 import HomeIndustries from "@/components/home/HomeIndustries";
-import Stats from "@/components/sections/Stats";import WhyZyntraz from "@/components/sections/WhyZyntraz";
+import Stats from "@/components/sections/Stats";import WhyZintraz from "@/components/sections/WhyZintraz";
 import CTABand from "@/components/layout/CTABand";
 
 // Hero → Journey → Pain are choreographed together (orb handover, then the .jr + .hpain curtain), so they stay adjacent.
@@ -24,7 +24,7 @@ export default function Home() {
       <HomeIndustries />
       <HomeProcess />
       <Stats />
-      <WhyZyntraz />
+      <WhyZintraz />
       <CTABand
         title={<>Your next stage of growth <span className="grad-text">needs more than software.</span></>}
         lede="Tell us where your business is today, where you want to go, and what's standing in the way. We'll help you identify what should change — and engineer the systems to make it happen."

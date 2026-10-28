@@ -43,7 +43,7 @@ export default function Experience({ bp, update }: { bp: Blueprint; update: Upd 
   const [toast, setToast] = useState<string | null>(null);
   const seq = useRef(0);
   const name = bp.business.name || "Your business";
-  const host = `${(bp.business.name || "yourbusiness").toLowerCase().replace(/[^a-z0-9]+/g, "")}.zyntraz.app`;
+  const host = `${(bp.business.name || "yourbusiness").toLowerCase().replace(/[^a-z0-9]+/g, "")}.zintraz.app`;
 
   // One entry per module (duplicates collapse), in category order.
   const mods = useMemo(() => {

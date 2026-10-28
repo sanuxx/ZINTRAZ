@@ -21,7 +21,7 @@ export default function Footer() {
           </p>
           <FooterColumns />
           <div className="gfoot-bottom">
-            <Image src={`${BASE_PATH}/zyntraz-logo.png`} alt="Zintraz" width={894} height={158} className="gfoot-logo" />
+            <Image src={`${BASE_PATH}/zintraz-logo.png`} alt="Zintraz" width={894} height={158} className="gfoot-logo" />
             <span>Copyright © {new Date().getFullYear()} Zintraz · Sri Lanka. Innovate • Dominate • Elevate.</span>
             <span className="gfoot-tag"><MotionToggle /></span>
           </div>

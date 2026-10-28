@@ -5,7 +5,7 @@
 export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 // Absolute origin + basePath, for sitemap.ts, robots.ts and links in emails. Set SITE_URL on the production
-// server (e.g. https://zyntraz.com); the preview falls back to its GitHub Pages address. A root-relative path
+// server (e.g. https://zintraz.com); the preview falls back to its GitHub Pages address. A root-relative path
 // resolved against `metadataBase` would drop the /ZYNTRAZ segment, so these are concatenated, not URL-joined.
 export const SITE = (process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || `https://sanuxx.github.io${BASE_PATH || "/ZYNTRAZ"}`).replace(/\/$/, "");
 

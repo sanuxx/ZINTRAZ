@@ -17,11 +17,11 @@ export const metadata: Metadata = {
     "Zintraz is a business transformation engineering company in Sri Lanka. We understand how your business works, then build the software, AI, data and automation it needs. Start a transformation assessment.",
   // The full wordmark is a wide rectangle — squished into a browser tab's square favicon slot it
   // reads as an illegible sliver, so the tab icon uses just the arrow accent cropped from it instead.
-  icons: { icon: `${BASE_PATH}/zyntraz-mark.png` },
+  icons: { icon: `${BASE_PATH}/zintraz-mark.png` },
   openGraph: {
     title: "Zintraz — Business transformation, engineered.",
     description: "Business transformation engineering: business analysis, software development, AI & automation, data and custom systems.",
-    images: ["/zyntraz-logo.png"],
+    images: ["/zintraz-logo.png"],
   },
 };
 

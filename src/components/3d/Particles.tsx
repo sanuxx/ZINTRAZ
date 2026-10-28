@@ -157,7 +157,7 @@ function buildShapes(n: number) {
 
 async function sampleLogo(n: number, width: number) {
   const img = new Image();
-  img.src = `${BASE_PATH}/zyntraz-logo-white.png`;
+  img.src = `${BASE_PATH}/zintraz-logo-white.png`;
   await img.decode();
   const W = 520, H = Math.round((W * img.height) / img.width);
   const c = document.createElement("canvas");

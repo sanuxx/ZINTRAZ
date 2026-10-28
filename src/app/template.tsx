@@ -27,7 +27,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
       {animate && (
         <div ref={curtain} className="pt-curtain" aria-hidden="true">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="pt-logo" src={`${BASE_PATH}/zyntraz-logo-white.png`} alt="" width={894} height={158} />
+          <img className="pt-logo" src={`${BASE_PATH}/zintraz-logo-white.png`} alt="" width={894} height={158} />
         </div>
       )}
       <div ref={content}>{children}</div>
