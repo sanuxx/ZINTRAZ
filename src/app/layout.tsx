@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "sw
 const display = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ["500", "600", "700"], variable: "--font-display", display: "swap" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sanuxx.github.io/ZYNTRAZ/"),
+  metadataBase: new URL("https://sanuxx.github.io/ZINTRAZ/"),
   title: { default: "Zintraz — Business transformation, engineered.", template: "%s — Zintraz" },
   description:
     "Zintraz is a business transformation engineering company in Sri Lanka. We understand how your business works, then build the software, AI, data and automation it needs. Start a transformation assessment.",
