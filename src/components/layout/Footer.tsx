@@ -21,13 +21,13 @@ export default function Footer() {
           </p>
           <FooterColumns />
           <div className="gfoot-bottom">
-            <Image src={`${BASE_PATH}/zyntraz-logo.png`} alt="Zyntraz" width={894} height={158} className="gfoot-logo" />
-            <span>Copyright © {new Date().getFullYear()} Zyntraz · Sri Lanka. Innovate • Dominate • Elevate.</span>
+            <Image src={`${BASE_PATH}/zyntraz-logo.png`} alt="Zintraz" width={894} height={158} className="gfoot-logo" />
+            <span>Copyright © {new Date().getFullYear()} Zintraz · Sri Lanka. Innovate • Dominate • Elevate.</span>
             <span className="gfoot-tag"><MotionToggle /></span>
           </div>
         </div>
       </footer>
-      <a className="wa-fab" href={WHATSAPP} target="_blank" rel="noopener noreferrer" aria-label="Chat with Zyntraz on WhatsApp">
+      <a className="wa-fab" href={WHATSAPP} target="_blank" rel="noopener noreferrer" aria-label="Chat with Zintraz on WhatsApp">
         <MessageCircle size={24} />
       </a>
     </>

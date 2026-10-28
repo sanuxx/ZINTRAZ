@@ -8,7 +8,7 @@ import { BASE_PATH, SERVER_FEATURES } from "@/lib/site";
 
 /**
  * Last step: the business and contact details, a summary of everything designed, and the ways to send it.
- * On the production server, "Submit to ZYNTRAZ" posts the blueprint to /api/blueprints (saved, emailed to the
+ * On the production server, "Submit to ZINTRAZ" posts the blueprint to /api/blueprints (saved, emailed to the
  * team, confirmed to the client). In the static GitHub Pages preview there is no server, so email and
  * WhatsApp open with the brief filled in and a share link that reopens this exact blueprint for our review.
  * Either way, the blueprint can be downloaded (and imported again), copied as a link, or printed as a PDF.
@@ -60,7 +60,7 @@ export default function Send({ bp, update, onImport }: { bp: Blueprint; update: 
   };
   const whatsapp = () => {
     if (!ready) return;
-    const text = `Hi ZYNTRAZ, I built a system blueprint for ${b.name || "my business"}: ${bp.nodes.length} modules, ${bp.links.length} connections, ${bp.flows.length} workflows. — ${c.name}\n\nOpen it here: ${shareLink(bp)}`;
+    const text = `Hi ZINTRAZ, I built a system blueprint for ${b.name || "my business"}: ${bp.nodes.length} modules, ${bp.links.length} connections, ${bp.flows.length} workflows. — ${c.name}\n\nOpen it here: ${shareLink(bp)}`;
     window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
     setSent(true);
   };
@@ -81,7 +81,7 @@ export default function Send({ bp, update, onImport }: { bp: Blueprint; update: 
       const parsed = validate(JSON.parse(await f.text()));
       if (!parsed) throw new Error();
       onImport(parsed); setErr(null);
-    } catch { setErr("That file isn't a ZYNTRAZ blueprint."); }
+    } catch { setErr("That file isn't a ZINTRAZ blueprint."); }
   };
 
   const groups = CATEGORIES.map((cat) => ({ cat, nodes: bp.nodes.filter((n) => MOD[n.mod]?.cat === cat.id) })).filter((g) => g.nodes.length);
@@ -130,8 +130,8 @@ export default function Send({ bp, update, onImport }: { bp: Blueprint; update: 
           ) : (
             <div className="snd-btns">
               {SERVER_FEATURES
-                ? <button type="submit" className="btn btn-primary btn-lg" disabled={!ready || busy}><SendIcon size={16} />{busy ? "Sending…" : "Submit to ZYNTRAZ"}</button>
-                : <button type="submit" className="btn btn-primary btn-lg" disabled={!ready}><Mail size={16} />Email it to ZYNTRAZ</button>}
+                ? <button type="submit" className="btn btn-primary btn-lg" disabled={!ready || busy}><SendIcon size={16} />{busy ? "Sending…" : "Submit to ZINTRAZ"}</button>
+                : <button type="submit" className="btn btn-primary btn-lg" disabled={!ready}><Mail size={16} />Email it to ZINTRAZ</button>}
               {SERVER_FEATURES && <button type="button" className="btn btn-ghost" disabled={!ready} onClick={email}><Mail size={16} />Email instead</button>}
               <button type="button" className="btn btn-wa" disabled={!ready} onClick={whatsapp}><MessageCircle size={16} />Send on WhatsApp</button>
             </div>

@@ -31,7 +31,7 @@ const chapters = [
     tag: "AI & Automation", title: <>AI that works <span className="grad-text">inside your systems.</span></>,
     desc: "Agents that answer customers on WhatsApp and email, qualify leads, process orders and automate the repetitive work — connected to your real data, with your team in control.",
     points: ["Sales & support agents", "Workflow automation", "Human-in-the-loop control"],
-    href: "/ai", cta: "Explore Zyntraz AI",
+    href: "/ai", cta: "Explore Zintraz AI",
   },
 ];
 
@@ -85,7 +85,7 @@ export default function Journey() {
   }, []);
 
   return (
-    <section ref={ref} className="jr dark" aria-label="What Zyntraz provides">
+    <section ref={ref} className="jr dark" aria-label="What Zintraz provides">
       <div className="jr-stage">
         <div className="jr-nebula" aria-hidden="true"><i /><i /></div>
         <div className="jr-canvas" aria-hidden="true"><Particles state={swarm} /></div>

@@ -11,8 +11,8 @@ import OperationSlider from "./OperationSlider";
 /**
  * The industries as one interactive dossier: pick an industry from the selector and its panel shows
  * - "Flip the operation": a before/after slider from today's desk (spreadsheet, sticky note, group chat,
- *   paper form) to the same work inside the ZYNTRAZ app, problem by problem (see OperationSlider);
- * - the approach as a pull quote, what we build, and the ZYNTRAZ products it runs on (live mini screens).
+ *   paper form) to the same work inside the ZINTRAZ app, problem by problem (see OperationSlider);
+ * - the approach as a pull quote, what we build, and the ZINTRAZ products it runs on (live mini screens).
  * /industries#<slug> (nav, footer, hero strip) opens that industry and scrolls to the explorer.
  */
 const SLUGS = industries.map((i) => i.slug);
@@ -92,7 +92,7 @@ export default function IndustryExplorer() {
 
           {built.length > 0 && (
             <div className="ixp-products">
-              <small>Built on ZYNTRAZ products</small>
+              <small>Built on ZINTRAZ products</small>
               <div className="ixp-prod-grid">
                 {built.map((p) => (
                   <Link key={p.id} href={`/products/${p.id}`} className="ixp-prod" style={{ ["--acc" as string]: p.accent }}>

@@ -14,7 +14,7 @@ export default function WhyZyntraz() {
     <section className="section" id="why-zyntraz">
       <div className="container">
         <SectionHead
-          eyebrow="Why ZYNTRAZ"
+          eyebrow="Why ZINTRAZ"
           heading={<>Built around your business. <span className="grad-text">Not around a template.</span></>}
           lede="Not a SaaS you bend around. Not a freelancer. Not a chatbot bolt-on. One team that understands your operation and engineers what it needs."
           center

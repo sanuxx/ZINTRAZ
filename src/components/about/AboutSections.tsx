@@ -13,7 +13,7 @@ import NightHero from "@/components/hero/NightHero";
 export function AboutHero() {
   return (
     <NightHero
-      eyebrow="About ZYNTRAZ"
+      eyebrow="About ZINTRAZ"
       title={<>Engineering the next way <span className="grad-text">businesses operate.</span></>}
       lede="A business transformation engineering company, helping organizations turn operational challenges into technology-driven opportunities."
       primary={{ label: "Start a transformation assessment", href: "/contact" }}
@@ -36,7 +36,7 @@ export function AboutManifesto() {
         <h2 className="ab-contrast">
           <span className="ab-dim" data-reveal>Technology companies often start with technology.</span>
           <span className="ab-dim" data-reveal style={{ ["--d" as string]: ".08s" }}>Consultants often stop at strategy.</span>
-          <span data-reveal style={{ ["--d" as string]: ".16s" }}>ZYNTRAZ connects <em>both.</em></span>
+          <span data-reveal style={{ ["--d" as string]: ".16s" }}>ZINTRAZ connects <em>both.</em></span>
         </h2>
         <div className="ab-cols">
           <p data-reveal>
@@ -69,7 +69,7 @@ export function AboutStory() {
         <div className="ab-story-grid">
           <h2 className="ab-h" data-reveal>A new company, built for how businesses <em>really work.</em></h2>
           <p className="ab-story-text" data-reveal style={{ ["--d" as string]: ".1s" }}>
-            Most businesses are sold software before anyone understands how they operate. ZYNTRAZ was founded to do it
+            Most businesses are sold software before anyone understands how they operate. ZINTRAZ was founded to do it
             the other way round: understand the business first, then design, build and keep improving the systems it needs.
           </p>
         </div>

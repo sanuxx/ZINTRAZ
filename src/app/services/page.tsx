@@ -11,7 +11,7 @@ import Glance from "@/components/ui/Glance";
 export const metadata: Metadata = {
   title: "Services — software, AI, data, IoT and ongoing engineering",
   description:
-    "Whether you need a new platform, AI capability, connected system or complete digital transformation, Zyntraz brings strategy and engineering together.",
+    "Whether you need a new platform, AI capability, connected system or complete digital transformation, Zintraz brings strategy and engineering together.",
 };
 
 // The page at a glance, under the hero: the four facts a skimmer should leave with.

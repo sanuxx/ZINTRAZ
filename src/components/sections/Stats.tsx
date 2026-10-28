@@ -35,7 +35,7 @@ export default function Stats() {
   }, []);
 
   return (
-    <section ref={ref} className="stats" id="numbers" aria-label="Zyntraz in numbers">
+    <section ref={ref} className="stats" id="numbers" aria-label="Zintraz in numbers">
       <div className="container stats-grid">
         {stats.map((s, i) => (
           <div key={s.label} className="stat" data-reveal style={{ ["--d" as string]: `${i * 0.08}s` }}>

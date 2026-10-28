@@ -67,7 +67,7 @@ export default function Solutions() {
     <section ref={ref} className="section solutions" id="solutions">
       <div className="container">
         <div className="section-head">
-          <span className="eyebrow" data-reveal>The Zyntraz fix</span>
+          <span className="eyebrow" data-reveal>The Zintraz fix</span>
           <h2 className="h-lg" data-reveal style={{ ["--d" as string]: ".1s" }}>
             Watch the chaos<br /><span className="grad-text">turn into a system.</span>
           </h2>

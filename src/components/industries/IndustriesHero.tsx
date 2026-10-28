@@ -6,7 +6,7 @@ import { BASE_PATH } from "@/lib/site";
  * /industries hero, full bleed, dark (near-black navy with deep-blue / violet washes). On the right, after the client's
  * reference: a huge circle mostly off-screen, only its left edge visible as a glowing crescent of light
  * (violet at the top, through indigo and brand blue, to sky at the bottom), fading out at both ends, with
- * a soft glow bleeding outward. On the left: the ZYNTRAZ mark, the headline in the same type as the
+ * a soft glow bleeding outward. On the left: the ZINTRAZ mark, the headline in the same type as the
  * other heroes (display 600, brand gradient on the key phrase), a thin rule, the subtitle and one action.
  * Kept short on purpose: the industry tabs and figures are in the explorer directly below.
  */
@@ -31,7 +31,7 @@ export default function IndustriesHero() {
           <p className="inx-brand">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={`${BASE_PATH}/zyntraz-mark.png`} alt="" width={94} height={94} />
-            <span>ZYNTRAZ <em>Industries</em></span>
+            <span>ZINTRAZ <em>Industries</em></span>
           </p>
           <h1 className="inx-title">Different industries.<br /><span className="grad-text">One engineering mindset.</span></h1>
           <span className="inx-rule" aria-hidden="true" />

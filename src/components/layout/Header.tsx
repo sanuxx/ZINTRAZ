@@ -38,8 +38,8 @@ export default function Header() {
     <>
       <header className={`gnav${open ? " is-open" : ""}`}>
         <div className="gnav-row">
-          <Link href="/" className="gnav-logo" aria-label="Zyntraz home" onClick={close}>
-            <Image src={`${BASE_PATH}/zyntraz-logo.png`} alt="Zyntraz" width={894} height={158} loading="eager" fetchPriority="high" />
+          <Link href="/" className="gnav-logo" aria-label="Zintraz home" onClick={close}>
+            <Image src={`${BASE_PATH}/zyntraz-logo.png`} alt="Zintraz" width={894} height={158} loading="eager" fetchPriority="high" />
           </Link>
           <nav className="gnav-links" aria-label="Primary">
             {links.map((item) => (

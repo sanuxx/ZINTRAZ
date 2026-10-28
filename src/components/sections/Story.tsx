@@ -39,7 +39,7 @@ export default function Story() {
         <div className="story-final">
           <small>Welcome to</small>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`${BASE_PATH}/zyntraz-logo-white.png`} alt="Zyntraz" width={894} height={158} />
+          <img src={`${BASE_PATH}/zyntraz-logo-white.png`} alt="Zintraz" width={894} height={158} />
         </div>
       </div>
     </section>

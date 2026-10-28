@@ -142,11 +142,11 @@ export default function WorkforceScene() {
       <div className="wf-beams" aria-hidden="true"><i /><i /><i /></div>
       <p className="wf-bigword" aria-hidden="true">HIRED.</p>
 
-      <p className="tile-eyebrow grad-text">Zyntraz AI</p>
-      <h2 className="wf-title">Meet the <span className="grad-text">Zyntraz AI</span> agents.</h2>
+      <p className="tile-eyebrow grad-text">Zintraz AI</p>
+      <h2 className="wf-title">Meet the <span className="grad-text">Zintraz AI</span> agents.</h2>
       <p className="tile-sub">Always on, working inside your systems from day one. <em>Illustrative example — not client data.</em></p>
       <div className="tile-links">
-        <Link href="/ai" className="btn btn-primary">Explore Zyntraz AI</Link>
+        <Link href="/ai" className="btn btn-primary">Explore Zintraz AI</Link>
         <Link href="/contact" className="link-chev">Start an AI assessment <ChevronRight size={18} /></Link>
       </div>
 
@@ -156,11 +156,11 @@ export default function WorkforceScene() {
           {crew.map(({ name, role, Icon, c, id, len, stat, tasks }) => (
             <li key={name} className="wf-slot" style={{ ["--c" as string]: c, ["--len" as string]: `${len}px` }}>
               <div className="wf-hang">
-                <span className="wf-strap" aria-hidden="true"><span>ZYNTRAZ · ZYNTRAZ · ZYNTRAZ · ZYNTRAZ ·</span></span>
+                <span className="wf-strap" aria-hidden="true"><span>ZINTRAZ · ZINTRAZ · ZINTRAZ · ZINTRAZ ·</span></span>
                 <span className="wf-clip" aria-hidden="true" />
                 <div className="wf-badge">
                   <span className="wf-foil" aria-hidden="true" />
-                  <div className="wf-badge-top"><b>ZYNTRAZ</b><span>AI staff</span></div>
+                  <div className="wf-badge-top"><b>ZINTRAZ</b><span>AI staff</span></div>
                   <div className="wf-avatar" aria-hidden="true"><Icon size={26} /></div>
                   <h3>{name}</h3>
                   <p className="wf-role">{role}</p>

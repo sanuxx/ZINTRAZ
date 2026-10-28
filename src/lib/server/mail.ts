@@ -47,7 +47,7 @@ export async function notifyTeam(s: Submission) {
   if (!mailConfigured()) return false;
   const bp = s.blueprint, c = bp.contact;
   await transport().sendMail({
-    from: process.env.MAIL_FROM || `ZYNTRAZ website <${EMAIL}>`,
+    from: process.env.MAIL_FROM || `ZINTRAZ website <${EMAIL}>`,
     to: process.env.MAIL_TO || EMAIL,
     replyTo: c.email || undefined,
     subject: `New system blueprint ${s.ref} — ${bp.business.name || c.company || c.name}`,
@@ -64,11 +64,11 @@ export async function confirmToClient(s: Submission) {
   if (!mailConfigured() || !to) return false;
   const name = s.blueprint.contact.name.split(" ")[0] || "there";
   await transport().sendMail({
-    from: process.env.MAIL_FROM || `ZYNTRAZ <${EMAIL}>`,
+    from: process.env.MAIL_FROM || `ZINTRAZ <${EMAIL}>`,
     to,
     replyTo: process.env.MAIL_TO || EMAIL,
     subject: `We've received your system blueprint (${s.ref})`,
-    text: `Hi ${name},\n\nThanks for sending us your system blueprint for ${s.blueprint.business.name || "your business"}. Your reference is ${s.ref}.\n\nOur team will review it and reply within 24 hours with questions and a plan: what to build first, a timeline and an estimate.\n\nYou can reopen your blueprint any time: ${builderLink(s)}\n\n— The ZYNTRAZ team\n${EMAIL}`,
+    text: `Hi ${name},\n\nThanks for sending us your system blueprint for ${s.blueprint.business.name || "your business"}. Your reference is ${s.ref}.\n\nOur team will review it and reply within 24 hours with questions and a plan: what to build first, a timeline and an estimate.\n\nYou can reopen your blueprint any time: ${builderLink(s)}\n\n— The ZINTRAZ team\n${EMAIL}`,
   });
   return true;
 }

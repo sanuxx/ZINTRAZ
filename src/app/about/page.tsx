@@ -7,9 +7,9 @@ import {
 } from "@/components/about/AboutSections";
 
 export const metadata: Metadata = {
-  title: "About ZYNTRAZ — engineering the next way businesses operate",
+  title: "About ZINTRAZ — engineering the next way businesses operate",
   description:
-    "ZYNTRAZ is a business transformation engineering company founded in Sri Lanka. We combine business analysis, strategy, software engineering, AI, data and connected technologies to create systems that make businesses more capable.",
+    "ZINTRAZ is a business transformation engineering company founded in Sri Lanka. We combine business analysis, strategy, software engineering, AI, data and connected technologies to create systems that make businesses more capable.",
 };
 
 export default function AboutPage() {

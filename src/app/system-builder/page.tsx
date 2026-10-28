@@ -4,7 +4,7 @@ import SystemBuilder from "@/components/builder/SystemBuilder";
 export const metadata: Metadata = {
   title: "Build your system — design your own business system",
   description:
-    "Drag and drop the modules your business needs, connect them, design your workflows, experience the system you designed and send the blueprint to ZYNTRAZ for review.",
+    "Drag and drop the modules your business needs, connect them, design your workflows, experience the system you designed and send the blueprint to ZINTRAZ for review.",
 };
 
 export default function SystemBuilderPage() {

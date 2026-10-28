@@ -155,7 +155,7 @@ export const MODULES: Mod[] = [
   { id: "multicurrency", name: "Multi-currency", cat: "platform", Icon: Coins, desc: "Prices and payments in any currency.", t: [], a: ["Convert currency"], w: { k: "stat", t: "Currencies", v: "4", s: "LKR · USD · EUR · GBP" } },
   { id: "automation", name: "Workflow engine", cat: "platform", Icon: Workflow, desc: "Runs the workflows you design, with logs.", t: ["Workflow failed"], a: ["Start a workflow"], w: { k: "stat", t: "Workflow runs", v: "2,914", s: "This week · 0 failed" } },
   { id: "notifications", name: "Notification centre", cat: "platform", Icon: Bell, desc: "One place for every alert, by role.", t: [], a: ["Notify a role"], w: { k: "stat", t: "Alerts today", v: "38", s: "All acknowledged" } },
-  { id: "ai-core", name: "Hosted on ZYNTRAZ core", cat: "platform", Icon: Cpu, desc: "Shared, secure core that every module runs on.", t: [], a: [], w: { k: "stat", t: "Uptime", v: "99.95%", s: "Last 90 days" } },
+  { id: "ai-core", name: "Hosted on ZINTRAZ core", cat: "platform", Icon: Cpu, desc: "Shared, secure core that every module runs on.", t: [], a: [], w: { k: "stat", t: "Uptime", v: "99.95%", s: "Last 90 days" } },
 ];
 
 export const MOD = Object.fromEntries(MODULES.map((m) => [m.id, m])) as Record<string, Mod>;

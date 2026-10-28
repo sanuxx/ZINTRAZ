@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Check, ChevronRight } from "lucide-react";
 
 /**
- * "How we engage": the three ways to work with ZYNTRAZ, side by side (best for, how it runs, typical
+ * "How we engage": the three ways to work with ZINTRAZ, side by side (best for, how it runs, typical
  * shape). The middle model is highlighted as the most common starting point.
  */
 const models = [

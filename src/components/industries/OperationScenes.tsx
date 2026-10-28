@@ -4,7 +4,7 @@ import { Check, Search, X } from "lucide-react";
 /**
  * One before/after scene per industry for OperationSlider. "Before" is that industry's real desk: four
  * artifacts in the four spots (s0..s3), each pinned with the problem it causes (p[i]). "After" is that
- * industry's ZYNTRAZ screen: four cards in the same quadrants (c0..c3), each ending in its outcome (o[i]).
+ * industry's ZINTRAZ screen: four cards in the same quadrants (c0..c3), each ending in its outcome (o[i]).
  */
 type Props = { t: string[] };
 export type Scene = { app: string; url: string; Before: (p: Props) => ReactNode; After: (p: Props) => ReactNode };

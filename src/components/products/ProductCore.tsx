@@ -21,7 +21,7 @@ export default function ProductCore() {
             Separate products. <span className="grad-text">One shared core.</span>
           </h2>
           <p className="lede" data-reveal style={{ ["--d" as string]: ".14s" }}>
-            Every ZYNTRAZ product is built on the same foundation, so they connect from the first day and grow together as your business does.
+            Every ZINTRAZ product is built on the same foundation, so they connect from the first day and grow together as your business does.
           </p>
         </div>
 

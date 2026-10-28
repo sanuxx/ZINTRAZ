@@ -41,7 +41,7 @@ const tree: NavItem[] = [
     href: "/ai",
     groups: [
       {
-        title: "ZYNTRAZ AI",
+        title: "ZINTRAZ AI",
         links: [
           { label: "Our AI solutions", href: "/ai#solutions", desc: "Integration, agents, custom apps, analytics, documents and strategy." },
           { label: "AI across your business", href: "/ai#across-business", desc: "Finance, sales, marketing, HR, projects and more." },
@@ -135,7 +135,7 @@ const tree: NavItem[] = [
       {
         title: "Company",
         links: [
-          { label: "About ZYNTRAZ", href: "/about" },
+          { label: "About ZINTRAZ", href: "/about" },
           { label: "How We Work", href: "/how-we-work" },
           { label: "Careers", href: "/careers", phase: 2 },
           { label: "FAQ", href: "/faq", phase: 2 },
@@ -171,7 +171,7 @@ export const footerColumns: NavGroup[] = [
   {
     title: "Solutions",
     links: [
-      { label: "ZYNTRAZ AI", href: "/ai" },
+      { label: "ZINTRAZ AI", href: "/ai" },
       { label: "Software & Digital Systems", href: "/solutions#software" },
       { label: "AI & Intelligence", href: "/solutions/ai-intelligence" },
       { label: "IoT & AIoT", href: "/solutions#iot" },

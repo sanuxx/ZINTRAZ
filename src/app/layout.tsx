@@ -12,14 +12,14 @@ const display = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ["500", "600", "
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sanuxx.github.io/ZYNTRAZ/"),
-  title: { default: "Zyntraz — Business transformation, engineered.", template: "%s — Zyntraz" },
+  title: { default: "Zintraz — Business transformation, engineered.", template: "%s — Zintraz" },
   description:
-    "Zyntraz is a business transformation engineering company in Sri Lanka. We understand how your business works, then build the software, AI, data and automation it needs. Start a transformation assessment.",
+    "Zintraz is a business transformation engineering company in Sri Lanka. We understand how your business works, then build the software, AI, data and automation it needs. Start a transformation assessment.",
   // The full wordmark is a wide rectangle — squished into a browser tab's square favicon slot it
   // reads as an illegible sliver, so the tab icon uses just the arrow accent cropped from it instead.
   icons: { icon: `${BASE_PATH}/zyntraz-mark.png` },
   openGraph: {
-    title: "Zyntraz — Business transformation, engineered.",
+    title: "Zintraz — Business transformation, engineered.",
     description: "Business transformation engineering: business analysis, software development, AI & automation, data and custom systems.",
     images: ["/zyntraz-logo.png"],
   },

@@ -3,7 +3,7 @@ import { ChevronRight, Code2, Brain, Boxes } from "lucide-react";
 import { SectionHead } from "@/components/sections/Blocks";
 import WhatPipeline from "@/components/home/WhatPipeline";
 
-// The two framing sections between the problem and the proof: what ZYNTRAZ does, and the three
+// The two framing sections between the problem and the proof: what ZINTRAZ does, and the three
 // engineering capabilities it does it with.
 
 const capabilities = [
@@ -36,7 +36,7 @@ export default function HomeOverview() {
       <section className="section" id="what-we-do">
         <div className="container">
           <SectionHead
-            eyebrow="What ZYNTRAZ does"
+            eyebrow="What ZINTRAZ does"
             heading={<>We don&apos;t just build software. <span className="grad-text">We engineer transformation.</span></>}
             lede="Business analysis, strategy, software, AI, data and connected technology — one team, from the first conversation to long-term optimisation."
             center

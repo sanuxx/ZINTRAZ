@@ -1,7 +1,7 @@
 import { Activity, Eye, GitBranch, Wrench } from "lucide-react";
 
 /**
- * "One engineering mindset": the four steps ZYNTRAZ follows in any industry, as a connected row.
+ * "One engineering mindset": the four steps ZINTRAZ follows in any industry, as a connected row.
  */
 const steps = [
   { icon: Eye, title: "Observe the floor", desc: "We spend time where the work happens: the front desk, the kitchen, the ward, the warehouse." },

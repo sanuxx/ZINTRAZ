@@ -22,7 +22,7 @@ const variants: Record<CTAVariant, { title: React.ReactNode; lede: string; label
   build: {
     title: <>Have a system <span className="grad-text">in mind?</span></>,
     lede: "From the first idea to a production-ready platform, we'll help you turn it into something real.",
-    label: "Build With ZYNTRAZ",
+    label: "Build With ZINTRAZ",
     href: "/contact",
   },
   ai: {
@@ -33,14 +33,14 @@ const variants: Record<CTAVariant, { title: React.ReactNode; lede: string; label
   },
   products: {
     title: <>Looking for a <span className="grad-text">ready-made solution?</span></>,
-    lede: "Explore ZYNTRAZ products designed around real business operations.",
+    lede: "Explore ZINTRAZ products designed around real business operations.",
     label: "Explore Products",
     href: "/products",
   },
   contact: {
     title: <>Let&apos;s build <span className="grad-text">what&apos;s next.</span></>,
     lede: "Every transformation starts with a conversation.",
-    label: "Talk to ZYNTRAZ",
+    label: "Talk to ZINTRAZ",
     href: "/contact",
   },
 };

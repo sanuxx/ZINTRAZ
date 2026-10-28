@@ -30,7 +30,7 @@ export const industries: Industry[] = [
     accent: "#0b5cff",
     icon: Hotel,
     heading: "Make hospitality operations more connected.",
-    lede: "For hotels, restaurants, resorts and event businesses, ZYNTRAZ brings operations, customers, inventory, reservations and intelligence together.",
+    lede: "For hotels, restaurants, resorts and event businesses, ZINTRAZ brings operations, customers, inventory, reservations and intelligence together.",
     problems: [
       "Booking fragmentation across channels",
       "Housekeeping and maintenance chaos",

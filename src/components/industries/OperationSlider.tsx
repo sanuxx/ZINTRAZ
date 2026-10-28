@@ -9,10 +9,10 @@ import { SCENES } from "./OperationScenes";
 /**
  * "Flip the operation" as a before/after slider over one realistic scene per industry (OperationScenes).
  * Left of the handle: that industry's desk today, one artifact per problem. Right of the handle: the same
- * four spots inside its ZYNTRAZ screen, each carrying its outcome. Drag anywhere, use the arrow keys on
- * the handle, or the Today / With ZYNTRAZ switch. The first time it is in view it sweeps once as a hint.
+ * four spots inside its ZINTRAZ screen, each carrying its outcome. Drag anywhere, use the arrow keys on
+ * the handle, or the Today / With ZINTRAZ switch. The first time it is in view it sweeps once as a hint.
  * On phones a half-and-half split is too narrow to read, so it becomes a flip: it starts on today, flips to
- * ZYNTRAZ once as the hint, and a tap anywhere (or the switch) flips between the two full views.
+ * ZINTRAZ once as the hint, and a tap anywhere (or the switch) flips between the two full views.
  */
 const narrow = () => window.matchMedia("(max-width: 560px)").matches;
 export default function OperationSlider({ ind }: { ind: Industry }) {
@@ -70,7 +70,7 @@ export default function OperationSlider({ ind }: { ind: Industry }) {
         </div>
         <div className="ixp-switch" role="group" aria-label="Show">
           <button type="button" aria-pressed={pos > 50} className={pos > 50 ? "is-on" : undefined} onClick={() => { clear(); glide(100); }}>Today</button>
-          <button type="button" aria-pressed={pos <= 50} className={pos <= 50 ? "is-on" : undefined} onClick={() => { clear(); glide(0); }}>With ZYNTRAZ</button>
+          <button type="button" aria-pressed={pos <= 50} className={pos <= 50 ? "is-on" : undefined} onClick={() => { clear(); glide(0); }}>With ZINTRAZ</button>
         </div>
       </div>
 
@@ -81,7 +81,7 @@ export default function OperationSlider({ ind }: { ind: Industry }) {
           <Before t={ind.problems} />
         </div>
 
-        <div className="ops-with" aria-label={`${ind.short} with ZYNTRAZ`}>
+        <div className="ops-with" aria-label={`${ind.short} with ZINTRAZ`}>
           <div className="ops-app">
             <div className="ops-app-bar"><i /><i /><i /><span>{scene.url}</span></div>
             <div className="ops-app-body">
@@ -99,8 +99,8 @@ export default function OperationSlider({ ind }: { ind: Industry }) {
         </div>
 
         <span className="ops-label l">Today</span>
-        <span className="ops-label r">With ZYNTRAZ</span>
-        <div className="ops-handle" role="slider" tabIndex={0} aria-label="Compare today with ZYNTRAZ" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(pos)} aria-valuetext={`${Math.round(100 - pos)}% with ZYNTRAZ`} onKeyDown={key}>
+        <span className="ops-label r">With ZINTRAZ</span>
+        <div className="ops-handle" role="slider" tabIndex={0} aria-label="Compare today with ZINTRAZ" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(pos)} aria-valuetext={`${Math.round(100 - pos)}% with ZINTRAZ`} onKeyDown={key}>
           <span><ChevronsLeftRight size={18} /></span>
         </div>
       </div>

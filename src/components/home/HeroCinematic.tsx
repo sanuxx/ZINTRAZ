@@ -99,7 +99,7 @@ export default function HeroCinematic() {
   }, []);
 
   return (
-    <section ref={ref} className="hx" aria-label="Zyntraz — business transformation, engineered">
+    <section ref={ref} className="hx" aria-label="Zintraz — business transformation, engineered">
       <div className="hx-stage">
         <div className="hx-field" aria-hidden="true"><GradientField state={orb} /></div>
         <div className="hx-glow" aria-hidden="true" />
@@ -141,7 +141,7 @@ export default function HeroCinematic() {
 
         <div className="hx-final">
           <h2>Then we <span className="grad-text">keep it evolving.</span></h2>
-          <p>Support, monitoring and new modules as your business grows. That&apos;s business transformation engineering — that&apos;s Zyntraz.</p>
+          <p>Support, monitoring and new modules as your business grows. That&apos;s business transformation engineering — that&apos;s Zintraz.</p>
           <div className="hx-ctas">
             <Link href="/contact" className="btn btn-primary btn-lg">Start a transformation assessment <ArrowRight size={17} /></Link>
             <Link href="/services" className="link-chev">Explore our services <ChevronRight size={18} /></Link>

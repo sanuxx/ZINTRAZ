@@ -16,13 +16,13 @@ import DelegateBoard from "@/components/aipage/DelegateBoard";
  * /ai — Artificial Intelligence & Intelligent Systems. Content from the client's AI page brief.
  * Design: light, glassy sections alternating with deep-navy "night" sections; a canvas neural orb in the
  * hero and the closing call; GSAP drives the choreography (see AIMotion, SolutionsReel, ApproachDial).
- * Structure: hero, the opportunity, six AI solutions, the delegate-to-AI demo, AI across the business, the approach, why Zyntraz,
+ * Structure: hero, the opportunity, six AI solutions, the delegate-to-AI demo, AI across the business, the approach, why Zintraz,
  * security & responsible AI, FAQs, final CTA.
  */
 export const metadata: Metadata = {
   title: "AI & Intelligent Systems — make intelligence your competitive advantage",
   description:
-    "Zyntraz designs, builds and integrates intelligent systems that help businesses automate operations, unlock insights, improve decision-making and create new opportunities for growth.",
+    "Zintraz designs, builds and integrates intelligent systems that help businesses automate operations, unlock insights, improve decision-making and create new opportunities for growth.",
 };
 
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -144,10 +144,10 @@ export default function AIPage() {
         </ApproachDial>
       </section>
 
-      {/* 06 Why Zyntraz */}
+      {/* 06 Why Zintraz */}
       <section className="ail-sec" id="why">
         <div className="ail-head center">
-          <p className="ail-eyebrow"><em>06</em>Why Zyntraz for AI?</p>
+          <p className="ail-eyebrow"><em>06</em>Why Zintraz for AI?</p>
           <h2 className="ail-h2" data-split><b>Intelligence engineered</b> <i>around your business.</i></h2>
         </div>
         <ol className="ail-why" data-ail="rise">
@@ -212,7 +212,7 @@ export default function AIPage() {
             <Link href="/contact" className="ail-btn light ail-mag">Start Your AI Project <ArrowRight size={16} /></Link>
             <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="ail-btn outline ail-mag">Talk to Our Team <ArrowRight size={16} /></a>
           </div>
-          <p className="ail-final-tag">ZYNTRAZ — Innovate • Dominate • Elevate</p>
+          <p className="ail-final-tag">ZINTRAZ — Innovate • Dominate • Elevate</p>
         </div>
       </section>
 

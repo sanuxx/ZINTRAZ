@@ -28,7 +28,7 @@ export const products: Product[] = [
     pain: "Wrong orders, wasted stock and no idea which dishes actually make money?",
     desc: "An intelligent platform designed to manage restaurant operations, orders, inventory, and analytics from one unified dashboard.",
     features: ["Multi-terminal POS", "Live KDS system", "Real-time inventory", "Dynamic QR menus", "Staff shift tracking", "Recipe cost engine"],
-    ai: "AI-ready: add a Zyntraz agent for demand forecasting and automatic reorders",
+    ai: "AI-ready: add a Zintraz agent for demand forecasting and automatic reorders",
     useCases: [
       "A single restaurant replacing a cash register and a notebook",
       "A multi-outlet group that needs one view of sales across branches",

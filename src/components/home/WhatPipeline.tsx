@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Check, ChevronRight, Hammer, Search, Sparkles } from "lucide-react";
 
-// "What ZYNTRAZ does" as a connected pipeline: a pulse carries "Your business" along a rail through the
+// "What ZINTRAZ does" as a connected pipeline: a pulse carries "Your business" along a rail through the
 // three stage nodes to "Transformed". Every animation runs on one 8s CSS cycle, so the node pulses
 // and card highlights stay in step with the travelling pulse (see the .pipe rules in globals.css).
 

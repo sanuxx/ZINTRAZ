@@ -10,7 +10,7 @@ import SolutionsStage from "@/components/solutions/SolutionsStage";
 export const metadata: Metadata = {
   title: "Solutions — software, AI and connected systems",
   description:
-    "From core business software to AI-powered intelligence and connected systems, Zyntraz brings multiple technology capabilities together under one transformation strategy.",
+    "From core business software to AI-powered intelligence and connected systems, Zintraz brings multiple technology capabilities together under one transformation strategy.",
 };
 
 export default function SolutionsPage() {

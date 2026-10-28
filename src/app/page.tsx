@@ -19,7 +19,7 @@ export default function Home() {
       <Journey />
       <HomePain />
       <HomeOverview />
-      <section className="tiles" aria-label="Zyntraz AI"><WorkforceScene /></section>
+      <section className="tiles" aria-label="Zintraz AI"><WorkforceScene /></section>
       <section className="tiles" aria-label="Custom business systems"><BusinessBlueprint /></section>
       <HomeIndustries />
       <HomeProcess />
