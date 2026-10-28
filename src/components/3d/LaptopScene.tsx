@@ -98,7 +98,7 @@ export default function LaptopScene({ children, onReady }: { children: ReactNode
       <span className="lap3-vignette" aria-hidden="true" />
       {/* Brand mark in the set's top-right corner (plain <img>, so BASE_PATH is applied by hand). */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="lap3-logo" src={`${BASE_PATH}/zyntraz-logo-white.png`} alt="ZYNTRAZ" width={894} height={174} />
+      <img className="lap3-logo" src={`${BASE_PATH}/zyntraz-logo-white.png`} alt="ZYNTRAZ" width={894} height={158} />
     </div>
   );
 }

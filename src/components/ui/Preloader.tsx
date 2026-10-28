@@ -75,7 +75,7 @@ export default function Preloader() {
         <div className="intro-line" />
         <div className="intro-logo">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="intro-logo-base" src={`${BASE_PATH}/zyntraz-logo-white.png`} alt="" width={894} height={174} />
+          <img className="intro-logo-base" src={`${BASE_PATH}/zyntraz-logo-white.png`} alt="" width={894} height={158} />
           <div className="intro-logo-sheen" style={{ "--sheen-logo": `url(${BASE_PATH}/zyntraz-logo-white.png)` } as React.CSSProperties} />
         </div>
       </div>
