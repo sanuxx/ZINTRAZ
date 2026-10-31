@@ -8,7 +8,8 @@ export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
   const form = await req.formData();
-  const to = (path: string) => NextResponse.redirect(new URL(path, req.url), 303);
+  // Relative on purpose: behind nginx, req.url is the internal address (localhost), not the public one.
+  const to = (path: string) => new NextResponse(null, { status: 303, headers: { Location: path } });
   if (form.get("logout")) { const res = to("/admin/blueprints/"); res.cookies.delete(COOKIE); return res; }
   if (!allow(`login:${clientIp(req)}`, 8, 15 * 60_000)) return to("/admin/blueprints/?error=locked");
   if (!checkPassword(String(form.get("password") ?? ""))) return to("/admin/blueprints/?error=1");

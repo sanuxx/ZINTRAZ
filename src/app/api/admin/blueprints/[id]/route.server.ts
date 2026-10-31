@@ -9,6 +9,9 @@ export const dynamic = "force-dynamic";
 
 type Ctx = { params: Promise<{ id: string }> };
 
+// Relative on purpose: behind nginx, req.url is the internal address (localhost), not the public one.
+const to = (path: string) => new NextResponse(null, { status: 303, headers: { Location: path } });
+
 export async function GET(_req: Request, { params }: Ctx) {
   if (!(await isAdmin())) return new Response("Unauthorized", { status: 401 });
   const sub = await get((await params).id);
@@ -20,7 +23,7 @@ export async function GET(_req: Request, { params }: Ctx) {
 
 export async function POST(req: Request, { params }: Ctx) {
   const { id } = await params;
-  if (!(await isAdmin())) return NextResponse.redirect(new URL("/admin/blueprints/", req.url), 303);
+  if (!(await isAdmin())) return to("/admin/blueprints/");
   const form = await req.formData();
   const status = String(form.get("status") ?? "");
   const note = form.get("note");
@@ -28,5 +31,5 @@ export async function POST(req: Request, { params }: Ctx) {
     ...(STATUSES.includes(status as Status) ? { status: status as Status } : {}),
     ...(typeof note === "string" ? { note: note.slice(0, 5000) } : {}),
   });
-  return NextResponse.redirect(new URL(`/admin/blueprints/${id}/?saved=1`, req.url), 303);
+  return to(`/admin/blueprints/${id}/?saved=1`);
 }

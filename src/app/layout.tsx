@@ -4,14 +4,14 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ClientEffects from "@/components/ui/ClientEffects";
 import TextFold from "@/components/ui/TextFold";
-import { BASE_PATH } from "@/lib/site";
+import { BASE_PATH, SITE } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const display = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ["500", "600", "700"], variable: "--font-display", display: "swap" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sanuxx.github.io/ZINTRAZ/"),
+  metadataBase: new URL(`${SITE}/`),
   title: { default: "Zintraz — Business transformation, engineered.", template: "%s — Zintraz" },
   description:
     "Zintraz is a business transformation engineering company in Sri Lanka. We understand how your business works, then build the software, AI, data and automation it needs. Start a transformation assessment.",
