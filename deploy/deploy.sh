@@ -10,6 +10,9 @@
 #   current -> releases/<timestamp>    what the zintraz service runs
 set -euo pipefail
 
+# This site's own Node. /usr/bin/node on the VPS is an old system copy that other apps may rely on.
+export PATH=/opt/node24/bin:$PATH
+
 ROOT=/var/www/30_new_zintraz_page
 REPO=https://github.com/sanuxx/ZINTRAZ.git
 PORT=3030
@@ -39,7 +42,7 @@ npm run build
 point_current_at "$REL"
 
 for _ in $(seq 1 20); do
-  if curl -fsS -o /dev/null "http://127.0.0.1:$PORT/"; then
+  if curl -fs -o /dev/null "http://127.0.0.1:$PORT/"; then
     ok=1
     ls -1d "$ROOT"/releases/* | sort -r | tail -n +$((KEEP + 1)) | xargs -r rm -rf
     echo "Deployed $(git rev-parse --short HEAD) to $REL"
