@@ -4,7 +4,7 @@ module.exports = {
             name: "zintraz_new_frontend",
             script: "npm",
             interpreter: "none",
-            args: "run dev",
+            args: "start",
             watch: false,
         }
     ],
